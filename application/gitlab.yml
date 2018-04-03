@@ -35,7 +35,11 @@
         src: /app/data/ansible/books/application/gitlab.rb
         dest: /etc/gitlab/gitlab.rb
         backup: yes
-    - name: start configure gitlab
-      command: gitlab-ctl start && gitlab-ctl reconfigure && gitlab-ctl restart
+    - name: start gitlab
+      command: gitlab-ctl start
+    - name: configure gitlab
+      command: gitlab-ctl reconfigure
+    - name: restart gitlab
+      command: gitlab-ctl restart
 
 
