@@ -1,0 +1,28 @@
+# gitlab-zh.yml
+# git clone https://gitlab.com/xhang/gitlab.git
+# cat gitlab/VERSION
+# gitlab-ctl stop
+# cd /root/gitlab
+# git diff v10.0.2 v10.0.2-zh > ../10.0.2-zh.diff
+# patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < 10.0.2-zh.diff
+# gitlab-ctl start
+# gitlab-ctl reconfigure
+
+- hosts: local
+  gather_facts: no
+  remote_user: root
+
+  - name: download gitlab_cn
+      git:
+        repo: https://gitlab.com/xhang/gitlab.git
+        dest: /app/down/git/
+  - name: diff gitlab_zh
+      command: git diff v10.6.2 v10.6.2-zh > ../10.6.2-zh.diff
+        chdir: /app/down/git/gitlab/
+  - name: patch copy file to gitlab-ce
+      command: patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < 10.6.2-zh.diff
+        chdir: /app/down/git/gitlab/
+  - name: restart gitlab-ce
+      command: gitlab-ctl stop && gitlab-ctl reconfigure && gitlab-ctl restart
+
+
