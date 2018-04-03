@@ -31,17 +31,19 @@ yum -y install pcre*
 \cp -f /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
 ntpdate cn.pool.ntp.org
   
-安装ansible
-\cp applicatipn/gitlab-ce.repo /etc/yum.repo.d/
-yum install -y ansible
-  
-mkdir -p /app/data/ansible/hosts/
-mkdir -p /app/data/ansible/books/
   
 下载并建立目录
+mkdir -p /app/data/ansible/hosts/
+mkdir -p /app/data/ansible/books/
+
 cd /app/data/ansible/books/
 git clone https://github.com/cifaz/ansiblerepo.git
 \cp -rf ./ansiblerepo/* ./
+  
+安装ansible
+\cp -rf application/gitlab-ce.repo /etc/yum.repos.d/
+yum install -y ansible
+  
   
 分发密钥 - 详见publish-ssh-key.yml
   
