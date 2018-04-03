@@ -1,9 +1,10 @@
 ### ansible工作常用库
+- - -
 
 #### ansible安装
 ##### centos7
 ```
-更换阿里云[https://www.5yun.org/13450.html]
+[更换阿里云](https://www.5yun.org/13450.html)
 
 yum install -y wget sqlite-devel xz gcc automake zlib-devel openssl-devel epel-release lrzsz git
 yum install -y  policycoreutils-python openssh-server openssh-clients cronie postfix patch
