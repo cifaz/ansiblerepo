@@ -24,7 +24,7 @@
       yum: name=postfix
 
     - name: install gitlab-ce
-      yum: name=gitlab-ce
+      yum: name=gitlab-ce-10.6.1
       with_items:
         - curl
         - openssh-server
