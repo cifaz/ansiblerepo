@@ -1,0 +1,24 @@
+---
+- hosts: local
+  gather_facts: no
+  remote_user: root
+
+  tasks:
+    - name: install  jdk1.8
+      yum: name=jdk1.8.0_144.x86_64 state=present disablerepo=* enablerepo=packages
+
+    - name: check jdk variable
+      shell: cat /etc/profile
+      register: result
+
+    #jdk_version 在变量文件中有定义
+    - name: jdk variable configuration /etc/profile file
+      shell: /bin/echo {{ item }} >> /etc/profile; source /etc/profile
+      when: result.stdout.find('JAVA_HOME') == -1
+      with_items:
+         - export JAVA_HOME=/usr/java/jdk{{ jdk_version }}
+         - export JAVA_BIN=/usr/java/jdk{{ jdk_version }}/bin
+         - export PATH=$PATH:/usr/java/jdk{{ jdk_version }}/bin
+         - export JRE_HOME=/usr/java/jdk{{ jdk_version }}/jre
+         - export CLASSPATH=.:/usr/java/jdk{{ jdk_version }}/lib:/usr/java/jdk{{ jdk_version }}/jre/lib
+         - export JAVA_HOME JAVA_BIN PATH JRE_HOME CLASSPATH
