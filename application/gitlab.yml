@@ -1,4 +1,5 @@
 # gitlab.yml
+# copy gitlab-ce.repo
 # systemctl start postfix
 # systemctl enable postfix
 # gitlab-ctl reconfigure
@@ -14,14 +15,17 @@
 # gitlab-ctl reconfigure
 
 ---
-- hosts: all
+- hosts: local
   gather_facts: no
+  remote_user: root
 
   tasks:
   - name: copy gitlab repo to yum repo
-    authorized_key: user=root
-                    key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-                    state=present
+    copy:
+      src: /app/data/ansible/books/application/gitlab-ce.repo
+      dest: /etc/yum.repo.d/
+      owner: root
+      group: root
   - name: install gitlab-ce
   - name: configure gitlab
   - name: download gitlab_cn
