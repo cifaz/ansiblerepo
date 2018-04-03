@@ -18,7 +18,7 @@
         repo: https://gitlab.com/xhang/gitlab.git
         dest: /app/down/git/gitlab/
     - name: diff gitlab_zh
-      shell: cd /app/down/git/gitlab/ && git diff v10.6.2 v10.6.2-zh > ../10.6.2-zh.diff
+      shell: cd /app/down/git/gitlab/ && git diff v10.6.2 > ./10.6.2-zh.diff
     - name: patch copy file to gitlab-ce
       shell: cd /app/down/git/gitlab/ && patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < 10.6.2-zh.diff
     - name: stop gitlab
