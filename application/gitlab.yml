@@ -1,0 +1,29 @@
+# gitlab.yml
+# systemctl start postfix
+# systemctl enable postfix
+# gitlab-ctl reconfigure
+# head -1 /opt/gitlab/version-manifest.txt
+#
+# git clone https://gitlab.com/xhang/gitlab.git
+# cat gitlab/VERSION
+# gitlab-ctl stop
+# cd /root/gitlab
+# git diff v10.0.2 v10.0.2-zh > ../10.0.2-zh.diff
+# patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < 10.0.2-zh.diff
+# gitlab-ctl start
+# gitlab-ctl reconfigure
+
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: copy gitlab repo to yum repo
+    authorized_key: user=root
+                    key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+                    state=present
+  - name: install gitlab-ce
+  - name: configure gitlab
+  - name: download gitlab_cn
+  - name: diff gitlab_zh
+  - name: copy file to gitlab-ce
