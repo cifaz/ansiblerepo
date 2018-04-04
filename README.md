@@ -49,6 +49,11 @@ cd ansiblerepo && git pull && \cp -rf ./* ../ && cd ../
   
 分发密钥 - 详见publish-ssh-key.yml
   
+  
+引用的第三方
+geerlingguy.mysql
+
+
 ```
 #### 组件 - 开发清单
 ##### 基础组件
