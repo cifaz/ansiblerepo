@@ -1,0 +1,39 @@
+- name: copy gitlab repo to yum repo
+  copy:
+    src: gitlab-ce.repo
+    dest: /etc/yum.repos.d/
+    owner: root
+    group: root
+  register: result
+
+- name: install dependeces postfix should be run
+  yum: name=postfix
+  register: result
+
+- name: install gitlab-ce
+  yum: name=gitlab-ce-{{gitlab-ce-version}}
+  with_items:
+    - curl
+    - openssh-server
+    - openssh-clients
+    - cronie
+  register: result
+
+- name: copy config file
+  copy:
+    src: /app/data/ansible/books/application/gitlab.rb
+    dest: /etc/gitlab/gitlab.rb
+    backup: yes
+  register: result
+
+- name: start gitlab
+  command: gitlab-ctl start
+  register: result
+
+- name: configure gitlab
+  command: gitlab-ctl reconfigure
+  register: result
+
+- name: restart gitlab
+  command: gitlab-ctl restart
+  register: result
