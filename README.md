@@ -68,7 +68,9 @@ ansible-galaxy install geerlingguy.gitlab 使用他们的, 但需要做一个中
 未做清单
 candao
 jumpserver
-java kafka中有相应的JDK安装, 查看
+java 
+
+oracle jdk kafka中有相应的JDK安装, 查看
 
 以上所有应用安装后未进行正常的使用, 需要观察, 有问题修正push
   
