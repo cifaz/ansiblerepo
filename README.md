@@ -51,10 +51,12 @@ cd ansiblerepo && git pull && \cp -rf ./* ../ && cd ../
   
   
 引用的第三方
-geerlingguy.mysql 默认没有安装最新版本
+geerlingguy.mysql 默认没有安装最新版本, 不是最新, 安装repo
 ansible-galaxy install DavidWittman.redis epel中已经有3.2.10
-ansible-galaxy install Stouts.mongodb 
-
+ansible-galaxy install Stouts.mongodb 不是最新, 安装repo
+ansible-galaxy install jasonroyle.rabbitmq 暂未测
+ansible-galaxy install andrewrothstein.kafka 
+  
 ```
 #### 组件 - 开发清单
 ##### 基础组件
