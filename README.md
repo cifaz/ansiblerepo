@@ -51,7 +51,7 @@ cd ansiblerepo && git pull && \cp -rf ./* ../ && cd ../
   
   
 引用的第三方
-geerlingguy.mysql
+geerlingguy.mysql 默认没有安装最新版本
 
 
 ```
