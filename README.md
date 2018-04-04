@@ -52,6 +52,7 @@ cd ansiblerepo && git pull && \cp -rf ./* ../ && cd ../
   
 引用的第三方
 geerlingguy.mysql 默认没有安装最新版本
+ansible-galaxy install DavidWittman.redis epel中已经有3.2.10
 
 
 ```

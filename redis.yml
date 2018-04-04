@@ -1,0 +1,4 @@
+- hosts: local
+  remote_user: root
+  roles:
+    - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
