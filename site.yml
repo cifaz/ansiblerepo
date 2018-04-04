@@ -1,4 +1,6 @@
 - hosts: local
   remote_user: root
   roles:
-    - {role: jenkins, tag: "jenkins"}
+    - {role: jenkins, tag: "jenkins", jenkins_state: started
+       ,jenkins_enabled: yes, jenkins_port: 5000, jenkins_listen_address: 127.0.0.1
+      , jenkins_args: "--sessionTimeout=1440", become: yes}
