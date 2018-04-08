@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: local
   become: yes
   roles:
     - williamyeh.oracle-java
