@@ -65,14 +65,37 @@ ansible-galaxy install savoirfairelinux.nexus3-oss 可指定详细版本
 
 ansible-galaxy install geerlingguy.gitlab 使用他们的, 但需要做一个中文插件, 并链接到他的插件中, 联系他
   
+ansible-galaxy install geerlingguy.nginx
+ansible-galaxy install sansible.openvpn
+  
 未做清单
 candao
 jumpserver
-java 
 
+java 
+以上所有第三方一次性安装, 并进行设置/配置文件替换等, 
+以符合安装需求, 并把所有常用配置及配置文件集中进行管理, 方便快速搭建
+  
+ansible-galaxy install williamyeh.oracle-java
+
+Oefenweb/ansible-ssh-keys
 oracle jdk kafka中有相应的JDK安装, 查看
+全部转化为roles
 
 以上所有应用安装后未进行正常的使用, 需要观察, 有问题修正push
+  
+其它运维工具
+以应用为中心的全生命周期管理平台——Portal
+从需求--开发--测试--交付—运维的一个闭环
+zabbix监控
+elasticsearch
+Gerrit
+Docker
+Chef
+codis
+Kubernetes
+Vagrant
+Logstash
   
 ```
 #### 组件 - 开发清单

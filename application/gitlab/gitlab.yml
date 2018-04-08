@@ -5,7 +5,7 @@
 # gitlab-ctl reconfigure
 # head -1 /opt/gitlab/version-manifest.txt
 # 待开发, 配置
-# nginx 端口号
+# nginx.yml 端口号
 # 访问域名
 
 ---
