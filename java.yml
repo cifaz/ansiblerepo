@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - williamyeh.oracle-java
+
+  vars:
+#    java_version: 8
+    java_subversion: 161
+#    java_build: 14
