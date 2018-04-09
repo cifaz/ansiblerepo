@@ -5,8 +5,6 @@
     url: "{{download_url}}"
     dest: "{{download_dir}}/zentao.rpm"
     force: no
-    state:
-      - directory
 
 - name: rpm install zentao
   yum:
