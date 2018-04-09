@@ -7,5 +7,5 @@
 
 - name: rpm install zentao
   yum:
-    name: {{download_dir}}/{{file_name}}
+    name: "{{download_dir}}/{{file_name}}"
     state: present
