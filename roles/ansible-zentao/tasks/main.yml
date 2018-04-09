@@ -11,3 +11,4 @@
 
 - name: start zentao
   shell: /opt/zbox/zbox start
+  register: finished
