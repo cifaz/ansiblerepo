@@ -1,8 +1,0 @@
----
-# defaults file for jenkins-centos
-jenkins_jdk: java-1.8.0-openjdk
-jenkins_state: started
-jenkins_enabled: yes
-jenkins_port: 9001
-jenkins_listen_address: 192.168.19.254
-become: yes

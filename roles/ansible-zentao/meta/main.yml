@@ -1,0 +1,15 @@
+---
+
+dependencies: []
+galaxy_info:
+  author: ccz
+  description: zentao 禅道项目管理软件
+  license: MIT
+  min_ansible_version: 2.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  galaxy_tags:
+    - zentao 项目管理

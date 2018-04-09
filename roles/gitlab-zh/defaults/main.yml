@@ -1,4 +1,0 @@
-gitlab_repo: https://gitlab.com/xhang/gitlab.git
-git_download_dir: /app/down/git/gitlab/
-gitlab_version: 10.6.1
-gitlab_rails_dir: /opt/gitlab/embedded/service/gitlab-rails
