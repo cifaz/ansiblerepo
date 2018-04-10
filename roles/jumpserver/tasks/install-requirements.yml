@@ -1,10 +1,10 @@
-- name: install jumperser requirements
+- name: yum install jumperser requirements
   shell: yum -y install $(cat /opt/jumpserver/requirements/rpm_requirements.txt)
 
-- name: install python requrements
+- name: pip install python requrements
   shell: pip install -r requirements.txt
 
-- name: install roles redis, mysql-mariadb
+- name: galaxy install roles redis, mysql-mariadb
   roles:
     - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
     - geerlingguy.mysql
