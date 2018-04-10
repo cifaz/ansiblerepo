@@ -3,7 +3,7 @@
 dependencies: []
 galaxy_info:
   author: ccz
-  description: gitlab汉化
+  description: jumpserver跳板机安装
   license: MIT
   min_ansible_version: 2.2
   platforms:
@@ -12,4 +12,4 @@ galaxy_info:
     - 6
     - 7
   galaxy_tags:
-    - gitlab
+    - jumpserver

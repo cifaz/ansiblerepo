@@ -1,7 +1,0 @@
-# emtpy
----
-# http://sourceforge.net/projects/zentao/files/9.8.3/zentaopms-9.8.3-1.noarch.rpm/download
-#download_url: http://dl.cnezsoft.com/zentao/9.8.3/zentaopms-9.8.3-1.noarch.rpm
-download_url: http://dl.cnezsoft.com/zentao/9.8.3/ZenTaoPMS.9.8.3.int.zbox_64.tar.gz
-download_dir: /app/down/
-file_name: ZenTaoPMS.9.8.3.int.zbox_64.tar.gz

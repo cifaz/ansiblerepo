@@ -1,0 +1,5 @@
+- hosts: local
+  gather_facts: no
+  remote_user: root
+  roles:
+    - {role: "jumpserver", tag: "jumpserver"}
