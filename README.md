@@ -78,6 +78,8 @@ ansible-galaxy install sansible.openvpn
 未做清单
 candao
 jumpserver
+
+gitlab等安装后不需要更新的 加入到yum.conf中
    
 以上所有第三方一次性安装, 并进行设置/配置文件替换等, 
 以符合安装需求, 并把所有常用配置及配置文件集中进行管理, 方便快速搭建
