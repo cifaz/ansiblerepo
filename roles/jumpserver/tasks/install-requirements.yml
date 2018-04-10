@@ -10,7 +10,7 @@
     name: python34-pip
 
 - name: pip upgrade pip
-  shell: pip3.4 install --upgrade pip3.4
+  shell: pip3.4 install --upgrade pip
 
 - name: pip install python requrements
   shell: pip3.4 install -r /opt/jumpserver/requirements/requirements.txt
