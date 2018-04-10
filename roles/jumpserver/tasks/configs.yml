@@ -1,0 +1,8 @@
+- name: create database jumperserver and privilages
+  shell: mysql && create database jumpserver default charset 'utf8'; && grant all on jumpserver.* to 'jumpserver'@'127.0.0.1' identified by 'somepassword';
+
+- name: config jumpserver
+  shell: cd /opt/jumpserver && \cp config_example.py config.py
+
+- name: generate database and datas
+  shell: /bin/bash /opt/jumpserver/utils/make_migrations.sh

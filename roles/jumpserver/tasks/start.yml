@@ -1,0 +1,2 @@
+- name: start jumpserver
+  shell: source /opt/py3/bin/activate && python /opt/jumpserver/run_server.py all
