@@ -16,4 +16,4 @@
   register: "install python {{python_version}} finished"
 
 - name: do python venv
-  shell: python3 -m /opt/venv py3 && source /opt/py3/bin/activate
+  shell: python36 -m /opt/venv py3 && source /opt/py3/bin/activate
