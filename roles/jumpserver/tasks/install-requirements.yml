@@ -10,10 +10,10 @@
     name: python34-pip
 
 - name: pip upgrade pip
-  shell: pip install --upgrade pip
+  shell: pip3.4 install --upgrade pip3.4
 
 - name: pip install python requrements
-  shell: pip install -r /opt/jumpserver/requirements/requirements.txt
+  shell: pip3.4 install -r /opt/jumpserver/requirements/requirements.txt
 
   roles:
     - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
