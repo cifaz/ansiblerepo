@@ -1,6 +1,5 @@
 - name: install python
   yum: "{{python_version}}"
-  state: present
   with_items:
     - wget
     - sqlite-devel

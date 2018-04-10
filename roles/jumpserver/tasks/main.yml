@@ -1,4 +1,4 @@
 # emtpy
 
-- include: installpython.yml
+- import_tasks: installpython.yml
 
