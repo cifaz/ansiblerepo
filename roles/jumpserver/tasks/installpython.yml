@@ -11,3 +11,4 @@
     - openssl-devel
     - epel-release
     - git
+  register: "install python {{python_version}} finished"
