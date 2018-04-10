@@ -1,5 +1,6 @@
 - name: install python
-  yum: "{{python_version}}"
+  yum:
+    name: "{{python_version}}"
   with_items:
     - wget
     - sqlite-devel
@@ -10,4 +11,5 @@
     - openssl-devel
     - epel-release
     - git
+  #when: ansible_os_family == "RedHat"
   register: "install python {{python_version}} finished"
