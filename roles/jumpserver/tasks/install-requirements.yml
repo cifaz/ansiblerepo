@@ -1,0 +1,5 @@
+- name: install jumperser requirements
+  shell: yum -y install $(cat /opt/jumpserver/requirements/rpm_requirements.txt)
+
+- name: install python requrements
+  shell: pip install -r requirements.txt

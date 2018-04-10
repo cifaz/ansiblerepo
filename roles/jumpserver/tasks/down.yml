@@ -1,0 +1,6 @@
+- name: download jumpserver
+  git:
+    repo: https://github.com/jumpserver/jumpserver.git
+    dest: /opt/
+    depth: 1
+
