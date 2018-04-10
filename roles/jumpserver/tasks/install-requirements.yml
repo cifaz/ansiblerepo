@@ -1,8 +1,17 @@
 - name: yum install jumperser requirements
   shell: yum -y install $(cat /opt/jumpserver/requirements/rpm_requirements.txt)
 
+- name: yum install pip
+  yum:
+    name: python-pip
+- name: yum install pip3
+  yum:
+    name: python34-pip
+
 - name: pip install python requrements
   shell: pip install -r requirements.txt
+
+
 
 - name: galaxy install roles redis, mysql-mariadb
   roles:
