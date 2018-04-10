@@ -15,7 +15,5 @@
 - name: pip install python requrements
   shell: /opt/py3/bin/pip install -r /opt/jumpserver/requirements/requirements.txt
 
-  roles:
-    - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
-    - geerlingguy.mysql
+
 

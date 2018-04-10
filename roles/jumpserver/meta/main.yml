@@ -1,6 +1,8 @@
 ---
 
-dependencies: []
+dependencies:
+  - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
+  - geerlingguy.mysql
 galaxy_info:
   author: ccz
   description: jumpserver跳板机安装
