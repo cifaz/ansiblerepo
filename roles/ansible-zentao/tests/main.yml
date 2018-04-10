@@ -1,0 +1,4 @@
+- hosts: local
+  remote_user: root
+  roles:
+    - {role: "ansible-zentao", tag: "zentao"}
