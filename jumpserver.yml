@@ -1,4 +1,4 @@
-- hosts: local
+- hosts: jump
   gather_facts: no
   remote_user: root
   roles:

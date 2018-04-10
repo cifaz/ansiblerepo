@@ -11,5 +11,9 @@
     - openssl-devel
     - epel-release
     - git
+    - "{{python_version}}-devel"
   #when: ansible_os_family == "RedHat"
   register: "install python {{python_version}} finished"
+
+- name: do python venv
+  shell: python3 -m /opt/venv py3 && source /opt/py3/bin/activate

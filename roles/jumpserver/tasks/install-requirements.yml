@@ -1,19 +1,19 @@
 - name: yum install jumperser requirements
   shell: yum -y install $(cat /opt/jumpserver/requirements/rpm_requirements.txt)
 
-- name: yum install pip
-  yum:
-    name: python-pip
+#- name: yum install pip
+#  yum:
+#    name: python-pip
+#
+#- name: yum install pip3
+#  yum:
+#    name: python34-pip
+#
+#- name: pip upgrade pip
+#  shell: pip3.4 install --upgrade pip
 
-- name: yum install pip3
-  yum:
-    name: python34-pip
-
-- name: pip upgrade pip
-  shell: pip3.4 install --upgrade pip
-
-#- name: pip install python requrements
-#  shell: pip3.4 install -r /opt/jumpserver/requirements/requirements.txt
+- name: pip install python requrements
+  shell: /opt/py3/bin/pip install -r /opt/jumpserver/requirements/requirements.txt
 
   roles:
     - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
