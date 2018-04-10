@@ -12,8 +12,8 @@
 - name: pip upgrade pip
   shell: pip3.4 install --upgrade pip
 
-- name: pip install python requrements
-  shell: pip3.4 install -r /opt/jumpserver/requirements/requirements.txt
+#- name: pip install python requrements
+#  shell: pip3.4 install -r /opt/jumpserver/requirements/requirements.txt
 
   roles:
     - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
