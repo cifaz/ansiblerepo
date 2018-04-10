@@ -1,17 +1,10 @@
+- name: install jumpserver dependency
+  shell: yum install -y wget sqlite-devel xz gcc automake zlib-devel openssl-devel epel-release git "{{python_version}}-devel"
+
 - name: install python
   yum:
     name: "{{python_version}}"
-  with_items:
-    - wget
-    - sqlite-devel
-    - xz
-    - gcc
-    - automake
-    - zlib-devel
-    - openssl-devel
-    - epel-release
-    - git
-    - "{{python_version}}-devel"
+
   #when: ansible_os_family == "RedHat"
   register: "install python {{python_version}} finished"
 
