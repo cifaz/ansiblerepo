@@ -11,9 +11,6 @@
 - name: pip install python requrements
   shell: pip install -r requirements.txt
 
-
-
-- name: galaxy install roles redis, mysql-mariadb
   roles:
     - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
     - geerlingguy.mysql
