@@ -6,8 +6,6 @@
 
 - import_tasks: install-requirements.yml
 
-- import_tasks: down.yml
-
 - import_tasks: configs.yml
 
 - import_tasks: start.yml
