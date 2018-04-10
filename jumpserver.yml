@@ -1,7 +1,6 @@
 - hosts: jump
-  gather_facts: no
   remote_user: root
   roles:
-#    - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
+    - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
     - geerlingguy.mysql
     - {role: "jumpserver", tag: "jumpserver"}
