@@ -12,7 +12,12 @@
     host_all: yes
 
 - name: config jumpserver
-  shell: cd /opt/jumpserver && \cp config_example.py config.py
+  copy:
+    src: config.py
+    dest: /opt/jumpserver/
+    backup: yes
+
+  #cd /opt/jumpserver && \cp config_example.py config.py
 
 - name: generate database and datas
   shell: /bin/bash /opt/jumpserver/utils/make_migrations.sh
