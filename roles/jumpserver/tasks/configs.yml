@@ -9,7 +9,7 @@
     name: jumpserver
     password: ccz2531
     priv: "jumpserver.*:ALL,GRANT"
-    host: "127.0.0.1"
+    host_all: yes
 
 - name: config jumpserver
   shell: cd /opt/jumpserver && \cp config_example.py config.py
