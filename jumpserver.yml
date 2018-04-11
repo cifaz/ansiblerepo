@@ -3,4 +3,4 @@
   roles:
     - {role: DavidWittman.redis, tag: "dbredis", redis_bind: 127.0.0.1}
     - geerlingguy.mysql
-    - {role: "jumpserver", tag: "jumpserver"}
+    - {role: "cifaz.jumpserver", tag: "jumpserver"}
