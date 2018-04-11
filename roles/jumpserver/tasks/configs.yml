@@ -16,6 +16,7 @@
     src: config.py
     dest: /opt/jumpserver/
     backup: yes
+    force: yes
 
   #cd /opt/jumpserver && \cp config_example.py config.py
 
