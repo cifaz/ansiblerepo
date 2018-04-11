@@ -1,2 +1,2 @@
 - name: start jumpserver
-  shell: source /opt/py3/bin/activate && python36 /opt/jumpserver/run_server.py all
+  shell: source /opt/py3/bin/activate && cd /opt/jumpserver/ && python run_server.py all
