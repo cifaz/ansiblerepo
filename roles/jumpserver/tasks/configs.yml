@@ -22,4 +22,4 @@
   #cd /opt/jumpserver && \cp config_example.py config.py
 
 - name: generate database and datas
-  shell: /bin/bash /opt/jumpserver/utils/make_migrations.sh
+  shell: source /opt/py3/bin/activate && /bin/bash /opt/jumpserver/utils/make_migrations.sh
