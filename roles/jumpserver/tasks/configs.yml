@@ -9,7 +9,6 @@
     name: jumpserver
     password: ccz2531
     priv: "jumpserver.*:ALL,GRANT"
-    host_all: yes
     host: "%"
 
 - name: config jumpserver
