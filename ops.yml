@@ -1,3 +1,3 @@
 - hosts: local
   roles:
-    - ansible.ops-env
+    - cifaz.ops-env
