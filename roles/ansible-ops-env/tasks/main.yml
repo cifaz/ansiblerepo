@@ -2,4 +2,4 @@
 - name: test install wget
   yum:
     name: wget
-
+  debug: "helloo"
