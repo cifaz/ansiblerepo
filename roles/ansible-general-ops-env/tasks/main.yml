@@ -1,0 +1,5 @@
+# emtpy
+- name: test install wget
+  yum:
+    name: wget
+

@@ -6,51 +6,45 @@
 
 [更换阿里云](https://www.5yun.org/13450.html)
 
+目标: 最少的步骤搭建一个自动化的内部测试环境
+
 ```
+
+======================================
+**准备工作 
+
+准备yum环境 [更换阿里云脚本](yumforali.sh)
+yum install -y wget
+cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 
+wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo 
+yum clean all && yum makecache
+yum update
   
-准备工作 
-  
-目录规划
-mkdir -p /app/bak
-mkdir -p /app/data/
-mkdir -p /app/www
-mkdir -p /app/server
-mkdir -p /app/down
-mkdir -p /app/deploy
-  
-安装基础依赖
-yum install -y wget sqlite-devel xz gcc automake zlib-devel openssl-devel epel-release lrzsz git
-yum install -y policycoreutils-python openssh-server openssh-clients cronie postfix patch
-yum install -y zip unzip
-yum install -y gcc-c++
-yum -y install tcl
-yum -y install ntpdate
-yum -y install pcre*
-  
-更换中国时间
-\cp -f /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
-ntpdate cn.pool.ntp.org
-  
+======================================
+**准备ansible环境
 下载并建立目录
-mkdir -p /app/data/ansible/hosts/
-mkdir -p /app/data/ansible/books/
-  
-cd /app/data/ansible/books/
+mkdir -p /app/data/ansible/{hosts, playbook}/
+   
 git clone https://github.com/cifaz/ansiblerepo.git
 复制文件到books中, 准备执行
 \cp -rf ./ansiblerepo/* ./
   
 安装ansible
-\cp -rf application/gitlab-ce.repo /etc/yum.repos.d/
 yum install -y ansible
   
 测试过程中, git更新并执行
 cd ansiblerepo && git pull && \cp -rf ./* ../ && cd ../
   
-分发密钥 - 详见publish-ssh-key.yml
+======================================
+**分发密钥 - 详见publish-ssh-key.yml
   
+======================================
+**目录规划及安装基本依赖
+ansible-playbook all init-centos.yml
   
-引用的第三方
+======================================
+**安装所有常用ansible组件
 Oefenweb/ansible-ssh-keys 替代自己写的ssh-key
 ansible-galaxy install williamyeh.oracle-java
 ansible-galaxy install geerlingguy.gitlab gitlab-zh自己编写插件
@@ -76,9 +70,6 @@ ansible-galaxy install geerlingguy.nginx
 ansible-galaxy install sansible.openvpn
    
 未做清单
-candao
-jumpserver
-
 gitlab等安装后不需要更新的 加入到yum.conf中
    
 以上所有第三方一次性安装, 并进行设置/配置文件替换等, 
@@ -119,3 +110,8 @@ gitlab等安装后不需要更新的 加入到yum.conf中
   Vagrant
   Logstash
 ```
+
+ansible可以便捷安装jumpserver啦, 后续持续更新, 支持更多系统, 目前支持centos
+playbook: ansible-galaxy install cifaz.jumpserver
+git地址: https://github.com/cifaz/ansible-jumpserver
+一键安装更轻松, 其它ansible集合库, https://github.com/cifaz

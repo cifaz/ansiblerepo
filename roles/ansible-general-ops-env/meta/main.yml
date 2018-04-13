@@ -1,0 +1,31 @@
+---
+
+dependencies:
+  - williamyeh.oracle-java
+  - geerlingguy.gitlab
+  - geerlingguy.jenkins
+  - kanedafromparis.xwiki-tomcat
+  - DavidWittman.redis
+  - Stouts.mongodb
+  - jasonroyle.rabbitmq
+  - andrewrothstein.kafka
+  - debops.dnsmasq
+  - AnsibleShipyard.ansible-zookeeper
+  - ChristopherDavenport.universal-tomcat
+  - geerlingguy.nodejs
+  - savoirfairelinux.nexus3-oss
+  - geerlingguy.gitlab
+  - geerlingguy.nginx
+  - sansible.openvpn
+galaxy_info:
+  author: ccz
+  description: 通用的内部测试环境建立工具
+  license: MIT
+  min_ansible_version: 2.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  galaxy_tags:
+    - gitlab
