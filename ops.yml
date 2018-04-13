@@ -1,0 +1,3 @@
+- hosts: local
+  roles:
+    - ansible-general-ops-env
