@@ -3,9 +3,9 @@
 ---
 - name: create dictory
   file:
-    path: /app/data/ssh/
+    path: /app/data/ssh-keys/
     state: directory
 
-- name: enerate ssh-keys | generate key pair
-  command: ssh-keygen -t rsa -b 2048 -C '' -P '' -f /app/data/ssh/id_rsa -q
+- name: generate ssh-keys | generate key pair
+  command: ssh-keygen -t rsa -b 2048 -C '' -P '' -f /app/data/ssh-keys/id_rsa -q
   become: false
