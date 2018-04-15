@@ -1,4 +1,4 @@
-Oefenweb/ansible-ssh-keys 替代自己写的ssh-key
+ansible-galaxy install tersmitten.ssh-keys 替代自己写的ssh-key
 ansible-galaxy install williamyeh.oracle-java
 ansible-galaxy install geerlingguy.gitlab gitlab-zh自己编写插件
 ansible-galaxy install geerlingguy.jenkins 

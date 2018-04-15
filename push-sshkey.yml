@@ -1,0 +1,5 @@
+# install ssh key to all
+---
+- hosts: all
+  roles:
+    - {role: tersmitten.ssh-keys}
