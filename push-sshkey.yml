@@ -2,7 +2,7 @@
 ---
 - hosts: all
   pre_tasks:
-    - task-import: pre.yml
+    - task-import: sshkey-generate.yml
   roles:
     - role: tersmitten.ssh-keys
       vars:
