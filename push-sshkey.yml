@@ -4,12 +4,12 @@
   roles:
     - role: tersmitten.ssh-keys,
       vars:
-          ssh_keys_private_keys:
-            - owner: root
-              src: /app/data/ssh/ssh-keys/id_rsa
-          ssh_keys_public_keys:
-            - owner: root
-              src: /app/data/ssh/ssh-keys/id_rsa.pub
-          ssh_keys_authorized_keys:
-            - owner: root
-              src: /app/data/ssh/ssh-keys/id_rsa.pub
+        ssh_keys_private_keys:
+          - owner: root
+            src: /app/data/ssh/ssh-keys/id_rsa
+        ssh_keys_public_keys:
+          - owner: root
+            src: /app/data/ssh/ssh-keys/id_rsa.pub
+        ssh_keys_authorized_keys:
+          - owner: root
+            src: /app/data/ssh/ssh-keys/id_rsa.pub
