@@ -34,7 +34,7 @@ git clone https://github.com/cifaz/ansiblerepo.git
 yum install -y ansible
   
 测试过程中, git更新并执行
-cd ansiblerepo && git pull && \cp -rf ./* ../ && cd ../
+cd ansiblerepo && git pull && \cp -rf ./*.yml ../ && cd ../
   
 ======================================
 **分发密钥 - 详见publish-ssh-key.yml
