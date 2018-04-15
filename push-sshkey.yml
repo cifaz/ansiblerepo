@@ -2,7 +2,7 @@
 ---
 - hosts: all
   roles:
-    - role: tersmitten.ssh-keys,
+    - role: tersmitten.ssh-keys
       vars:
         ssh_keys_private_keys:
           - owner: root
