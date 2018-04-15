@@ -1,0 +1,8 @@
+# generate ssh-keys
+# ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
+---
+- name: enerate ssh-keys | generate key pair
+  command: ssh-keygen -t rsa -b 2048 -C '' -P '' -f /app/data/ssh/id_rsa -q
+  args:
+    creates: "/app/data/ssh/id_rsa"
+  become: false
