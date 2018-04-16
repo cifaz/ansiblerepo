@@ -90,5 +90,10 @@
   yum:
     name: pcre*
 
-- name: update chinese time
-  shell: \cp -f /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && ntpdate cn.pool.ntp.org
+- name: copy chinese time file
+  copy:
+    src: /usr/share/zoneinfo/Asia/Chongqing
+    dest: /etc/localtime
+
+- name: update time
+  shell: ntpdate cn.pool.ntp.org
