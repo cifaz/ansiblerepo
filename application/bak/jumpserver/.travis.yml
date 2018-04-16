@@ -15,7 +15,7 @@ os:
     - centos_7
 
 script:
-  - test/main.yml
+  - test/ssh-key-and-init-env.yml
 
 notifications:
     webhooks: https://galaxy.ansible.com/api/v1/notifications/

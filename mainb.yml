@@ -11,6 +11,7 @@
     - vars.yml
   roles:
     - role: tersmitten.ssh-keys
+      when: enable_push_ssh_key
       vars:
         ssh_keys_private_keys:
           - owner: root
@@ -21,17 +22,21 @@
         ssh_keys_authorized_keys:
           - owner: root
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
-      when: enable_push_ssh_key
+
     - role: srsp.oracle-java
+      when: enable_oracle_java
       vars:
-        java_version: 8
-        java_subversion: 161
-        java_build: 12
-#        jdk_tarball_hash: 2f38c3b165be4555a1fa6e98c45e0808
-        java_remove_download: false
-        java_set_javahome: true
+        java_version: "{{java_version}}"
+        java_subversion: "{{java_subversion}}"
+        java_build: "{{java_build}}"
+#        jdk_tarball_hash: "{{jdk_tarball_hash}}"
+        java_remove_download: "{{java_remove_download}}"
+        java_set_javahome: "{{java_set_javahome}}"
+
 
   tasks:
     - name: print somethings
       debug:
-        msg: "hiiiiii"
+        msg: "===== install ok ======"
+
+

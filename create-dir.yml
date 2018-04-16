@@ -1,0 +1,3 @@
+- name: create app dirs
+  # bak,data,www,server,down,deploy 备份,数据,网站,服务,下载,部署
+  shell: mkdir -p /app/{bak,data,www,server,down,deploy}

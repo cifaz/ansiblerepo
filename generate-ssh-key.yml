@@ -1,6 +1,0 @@
-# generate ssh-keys
-# ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
----
-- hosts: local
-  roles:
-    - cifaz.generate-ssh-key

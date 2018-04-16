@@ -1,10 +1,19 @@
-# install ssh key to all
 ---
+# 生成ssh key
+- hosts: localhost
+  vars_files:
+    - vars.yml
+  roles:
+    - role: cifaz.generate-ssh-key
+      when: enable_generate_ssh_key
+
+# 分发key
 - hosts: all
   vars_files:
     - vars.yml
   roles:
     - role: tersmitten.ssh-keys
+      when: enable_push_ssh_key
       vars:
         ssh_keys_private_keys:
           - owner: root
@@ -15,3 +24,10 @@
         ssh_keys_authorized_keys:
           - owner: root
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
+
+  tasks:
+     # 更改YUM
+     include: aliyum-install.yml
+
+     # 统一创建目录 安装依赖 更换中国时间
+     include: init-centos.yml
