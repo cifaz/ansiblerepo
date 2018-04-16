@@ -3,7 +3,6 @@
 - hosts: local
   vars_files:
     - vars.yml
-
   roles:
       - cifaz.generate-ssh-key
       - role: tersmitten.ssh-keys
