@@ -9,6 +9,7 @@
 - hosts: local
   vars_files:
     - vars.yml
+  roles:
     - role: tersmitten.ssh-keys
       vars:
         ssh_keys_private_keys:
@@ -21,7 +22,6 @@
           - owner: root
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
       when: enable_push_ssh_key
-
     - role: ansiblebit.oracle-java
       oracle_java_version: 8
       oracle_java_version_update: 161
