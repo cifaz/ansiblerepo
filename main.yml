@@ -4,7 +4,8 @@
   vars_files:
     - vars.yml
   roles:
-    - cifaz.generate-ssh-key
+    - role: cifaz.generate-ssh-key
+      when: do_push_ssh_key
     - role: tersmitten.ssh-keys
       vars:
         ssh_keys_private_keys:
