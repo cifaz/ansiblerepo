@@ -3,9 +3,10 @@
   yum:
     name: wget
 
-- name: bak src yum repo
-  copy: /etc/yum.repos.d/CentOS-Base.repo
-  dest: /etc/yum.repos.d/CentOS-Base.repo.bak
+- name: backu src yum repo
+  copy:
+    src: /etc/yum.repos.d/CentOS-Base.repo
+    dest: /etc/yum.repos.d/CentOS-Base.repo.bak
 
 - name: download ali yum repo
   shell: wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
