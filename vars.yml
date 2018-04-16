@@ -1,9 +1,13 @@
 
+# 是否开启
+# 生成sshkey
+enable_generate_ssh_key: false
+enable_push_ssh_key: false
+
 # 推送ssh-key到各机器
 ssh_key_dir: /app/data/ssh-keys
 ssh_key_priv_name: id_rsa
 ssh_key_pub_name: id_rsa.pub
-do_push_ssh_key: false
 
 
 

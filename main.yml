@@ -1,11 +1,14 @@
 ---
-
 - hosts: local
   vars_files:
     - vars.yml
   roles:
     - role: cifaz.generate-ssh-key
-      when: do_push_ssh_key
+      when: enable_generate_ssh_key
+
+- hosts: all
+  vars_files:
+    - vars.yml
     - role: tersmitten.ssh-keys
       vars:
         ssh_keys_private_keys:
@@ -17,7 +20,11 @@
         ssh_keys_authorized_keys:
           - owner: root
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
-      when: do_push_ssh_key
+      when: enable_push_ssh_key
+
+    - role: ansiblebit.oracle-java
+      oracle_java_set_as_default: yes
+
   tasks:
     - name: print somethings
       debug:
