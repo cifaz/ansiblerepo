@@ -6,7 +6,7 @@
     - role: cifaz.generate-ssh-key
       when: enable_generate_ssh_key
 
-- hosts: all
+- hosts: local
   vars_files:
     - vars.yml
     - role: tersmitten.ssh-keys
