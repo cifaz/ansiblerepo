@@ -4,18 +4,18 @@
   vars_files:
     - vars.yml
   roles:
-      - cifaz.generate-ssh-key
-      - role: tersmitten.ssh-keys
-        vars:
-          ssh_keys_private_keys:
-            - owner: root
-              src: "{{ssh_key_dir}}/{{ssh_key_priv_name}}"
-          ssh_keys_public_keys:
-            - owner: root
-              src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
-          ssh_keys_authorized_keys:
-            - owner: root
-              src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
+    - cifaz.generate-ssh-key
+    - role: tersmitten.ssh-keys
+      vars:
+        ssh_keys_private_keys:
+          - owner: root
+            src: "{{ssh_key_dir}}/{{ssh_key_priv_name}}"
+        ssh_keys_public_keys:
+          - owner: root
+            src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
+        ssh_keys_authorized_keys:
+          - owner: root
+            src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
   tasks:
     - name: print somethings
       debug:
