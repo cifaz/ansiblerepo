@@ -1,6 +1,10 @@
 ---
 
 - hosts: local
-
+  roles:
+      - generate-ssh-key.yml
+      - push-ssh-key.yml
   tasks:
-    - includes: generate-ssh-key.yml
+    - name: print somethings
+      debug:
+        msg: "hiiiiii"
