@@ -14,7 +14,7 @@
   file:
     path: /app/data/ssh-keys/
     state: directory
-  when: result.rc == 0 | false
+  when: result.rc == 0
 
 - name: the keys is exists
   shell: ls /app/data/ssh-keys/id_rsa
