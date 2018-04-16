@@ -7,14 +7,15 @@
   ignore_errors: true
   register: result
 
-- name: info result
-  debug: "msg={{result}}"
+- name: ssh-keys dir exists
+  debug: "msg=ssh-keys dir exists, not create again"
+  when: result.rc != 0
 
 - name: create dictory
   file:
     path: /app/data/ssh-keys/
     state: directory
-  when: result.rc == 0
+  when: result.rc != 0
 
 - name: the keys is exists
   shell: ls /app/data/ssh-keys/id_rsa
@@ -22,8 +23,7 @@
   register: resultFile
 
 - name: ssh-keys exists
-  debug:
-    msg: ssh-keys exists, not create again
+  debug: "msg=ssh-keys exists, not create again"
   when: resultFile.rc == 0
 
 - name: generate ssh-keys | generate key pair
