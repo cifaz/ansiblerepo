@@ -10,7 +10,7 @@
 - name: ssh-keys dir exists
   debug:
     msg: ssh-keys dir exists, not create again
-  when: result.rc != 0
+  when: result.rc == 0
 
 - name: create dictory
   file:
