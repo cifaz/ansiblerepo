@@ -22,7 +22,7 @@
   register: resultFile
 
 - name: ssh-keys exists
-  debug: "ssh-keys exists, not create again"
+  debug: "msg=ssh-keys exists, not create again"
   when: resultFile.rc != 0
 
 - name: generate ssh-keys | generate key pair
