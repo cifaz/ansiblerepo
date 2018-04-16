@@ -21,9 +21,11 @@
   ignore_errors: true
   register: resultFile
 
-- name: info resultFile
-  command: "echo {{resultFile}}"
+- name: ssh-keys exists
+  debug: "ssh-keys exists, not create again"
+  when: resultFile.rc != 0
 
 - name: generate ssh-keys | generate key pair
   command: ssh-keygen -t rsa -b 2048 -C '' -P '' -f /app/data/ssh-keys/id_rsa -q
   become: false
+  when: resultFile.rc == 0
