@@ -4,6 +4,7 @@
 enable_generate_ssh_key: false
 enable_push_ssh_key: false
 enable_oracle_java: false
+enable_dnsmasq: true
 
 # 推送ssh-key到各机器
 ssh_key_dir: /app/data/ssh-keys
