@@ -8,7 +8,8 @@
   register: result
 
 - name: ssh-keys dir exists
-  debug: "msg=ssh-keys dir exists, not create again"
+  debug:
+    msg: ssh-keys dir exists, not create again
   when: result.rc != 0
 
 - name: create dictory
