@@ -24,10 +24,8 @@
         ssh_keys_authorized_keys:
           - owner: root
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
-
   tasks:
      # 更改YUM
      include: aliyum-install.yml
-
      # 统一创建目录 安装依赖 更换中国时间
      include: init-centos.yml
