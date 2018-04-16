@@ -22,11 +22,14 @@
           - owner: root
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
       when: enable_push_ssh_key
-    - role: williamyeh.oracle-java
+    - role: srsp.oracle-java
       vars:
         java_version: 8
         java_subversion: 161
-        java_build: 13
+        java_build: 12
+        jdk_tarball_hash: 2f38c3b165be4555a1fa6e98c45e0808
+        java_remove_download: false
+        java_set_javahome: true
 
   tasks:
     - name: print somethings
