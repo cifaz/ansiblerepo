@@ -1,0 +1,6 @@
+---
+
+- hosts: local
+
+  tasks:
+    - includes: generate-ssh-key.yml

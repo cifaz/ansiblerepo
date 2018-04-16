@@ -1,3 +1,13 @@
+
+# 推送ssh-key到各机器
 ssh_key_dir: /app/data/ssh-keys
 ssh_key_priv_name: id_rsa
 ssh_key_pub_name: id_rsa.pub
+
+
+
+
+
+
+
+
