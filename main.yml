@@ -4,7 +4,7 @@
   roles:
       - generate-ssh-key.yml
       - push-ssh-key.yml
-  tasks:
-    - name: print somethings
-      debug:
-        msg: "hiiiiii"
+#  tasks:
+#    - name: print somethings
+#      debug:
+#        msg: "hiiiiii"
