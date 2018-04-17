@@ -12,7 +12,7 @@
         gitlab_version: "{{gitlab_version}}"
         gitlab_nginx_listen_port: "{{gitlab_nginx_listen_port}}"
         gitlab_nginx_listen_https: "{{gitlab_nginx_listen_https}}"
-    - role: gitlab-zh
-      when: enable_gitlab_zh
+    - {role: gitlab-zh, when: enable_gitlab_zh}
+
 
 
