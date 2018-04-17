@@ -3,16 +3,20 @@
   vars_files:
     - vars.yml
   tasks:
-    - name: test vars fies1
+    - name: test vars fies 1
       debug:
         msg: "hiiii >>>  {{ssh_key_dir}}"
     - name: test vars fies 2
       debug:
         msg: "hiiii >>>  {{java_subversion}}"
 
-    - name: test vars fies 2
+    - name: test vars fies 3
       debug:
         msg: "hiiii >>>  {{gitlab_version}}"
+
+    - name: test vars fies 4
+      debug:
+        msg: "hiiii >>>  {{gitlab_nginx_listen_https}}"
 
 
 
