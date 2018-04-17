@@ -4,6 +4,10 @@
     - vars.yml
   roles:
     - role: bertvv.dnsmasq
+      vars:
+        dnsmasq_listen_address: 192.168.19.254,127.0.0.1
+        dnsmasq_bogus_priv: false
+
 
 
 
