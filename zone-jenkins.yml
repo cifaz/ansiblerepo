@@ -3,8 +3,8 @@
   vars_files:
     - vars.yml
   roles:
-    - role: srsp.oracle-java
-      when: enable_oracle_java
+    - role: geerlingguy.jenkins
+      when: enable_jenkins
 
 
 
