@@ -1,12 +1,13 @@
 ---
-- hosts: web
+- hosts: localhost
   vars_files:
     - vars.yml
   roles:
+    # 需要手动上传, 于/etc/dnsmasq.d/建立.conf文件, 如ccz.com.conf, 输入内容address=/.ccz.com/192.168.19.19(IP, 可以内网任意IP)
     - role: bertvv.dnsmasq
       vars:
-        dnsmasq_listen_address: 192.168.19.254,127.0.0.1
-        dnsmasq_bogus_priv: false
+        dnsmasq_listen_address: "{{dnsmasq_listen_address}}"
+        dnsmasq_bogus_priv: "{{dnsmasq_bogus_priv}}"
 
 
 
