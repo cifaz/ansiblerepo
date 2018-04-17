@@ -31,23 +31,23 @@ gitlab_git_data_dir: "/app/data/gitlab/repo"
 gitlab_backup_path: "/app/data/gitlab/bak"
 gitlab_version: 10.6.1
 gitlab_nginx_listen_port: 85
-gitlab_nginx_listen_https: "false"
+gitlab_nginx_listen_https: false
 # 如下的配置默认不配置, 如需要配置, 请自行传入
 # Email configuration.
-gitlab_email_enabled: "false"
+gitlab_email_enabled: false
 gitlab_email_from: "hanlin2531@163.com"
 gitlab_email_display_name: "Gitlab"
 gitlab_email_reply_to: "hanlin2531@163.com"
 # SMTP Configuration
-gitlab_smtp_enable: "false"
+gitlab_smtp_enable: false
 gitlab_smtp_address: "smtp.server"
-gitlab_smtp_port: "465"
+gitlab_smtp_port: 465
 gitlab_smtp_user_name: "smtp user"
 gitlab_smtp_password: "smtp password"
 gitlab_smtp_domain: "example.com"
 gitlab_smtp_authentication: "login"
-gitlab_smtp_enable_starttls_auto: "true"
-gitlab_smtp_tls: "false"
+gitlab_smtp_enable_starttls_auto: true
+gitlab_smtp_tls: false
 gitlab_smtp_openssl_verify_mode: "none"
 
 
