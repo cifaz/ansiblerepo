@@ -2,6 +2,10 @@
 - hosts: localhost
   vars_files:
     - vars.yml
+  tasks:
+    - name: varssss
+      debug:
+         msg: "hii i {{gitlab_external_url}}, gitlab_version"
   roles:
     - role: geerlingguy.gitlab
       when: enable_gitlab
@@ -9,11 +13,13 @@
         gitlab_external_url: "{{gitlab_external_url}}"
         gitlab_git_data_dir: "{{gitlab_git_data_dir}}"
         gitlab_backup_path: "{{gitlab_backup_path}}"
-        gitlab_version: {{gitlab_version}}
-        gitlab_nginx_listen_port: {{gitlab_nginx_listen_port}}
+        gitlab_version: 10.6.1
+        gitlab_nginx_listen_port: "{{gitlab_nginx_listen_port}}"
         gitlab_nginx_listen_https: "{{gitlab_nginx_listen_https}}"
     - role: cifaz.gitlab-zh
       when: enable_gitlab_zh
+      vars:
+        gitlab_version: "{{gitlab_version}}"
 
 
 
