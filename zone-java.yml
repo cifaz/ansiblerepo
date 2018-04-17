@@ -6,5 +6,3 @@
     - role: srsp.oracle-java
       when: enable_oracle_java
 
-
-
