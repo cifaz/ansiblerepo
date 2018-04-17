@@ -5,8 +5,8 @@
   roles:
     - role: geerlingguy.gitlab
       when: enable_gitlab
-    - role: cifaz.gitlab-zh
-      when: enable_gitlab_zh
+#    - role: cifaz.gitlab-zh
+#      when: enable_gitlab_zh
 
 
 
