@@ -1,5 +1,5 @@
 ---
-- hosts: web
+- hosts: local
   vars_files:
     - vars.yml
   roles:
