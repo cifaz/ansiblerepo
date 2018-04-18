@@ -8,6 +8,7 @@ enable_dnsmasq: true
 enable_gitlab: true
 enable_gitlab_zh: true
 enable_jenkins: true
+enable_zentao: true
 
 # 推送ssh-key到各机器
 ssh_key_dir: /app/data/ssh-keys
