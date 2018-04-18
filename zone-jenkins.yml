@@ -4,6 +4,8 @@
     - vars.yml
   roles:
     - role: geerlingguy.jenkins
+      vars_file:
+        - vars.yml
       when: enable_jenkins
 
 
