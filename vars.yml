@@ -2,8 +2,8 @@
 # 是否开启
 # 生成sshkey
 enable_generate_ssh_key: false
-enable_push_ssh_key: false
-enable_oracle_java: false
+enable_push_ssh_key: true
+enable_oracle_java: true
 enable_dnsmasq: true
 enable_gitlab: true
 enable_gitlab_zh: true
