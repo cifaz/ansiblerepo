@@ -42,7 +42,7 @@ dnsmasq_bogus_priv: false
 gitlab_external_url: "http://git.ccz.com"
 gitlab_git_data_dir: "/app/data/gitlab/repo"
 gitlab_backup_path: "/app/data/gitlab/bak"
-#gitlab_version: 10.6.1
+gitlab_version: 10.6.4
 gitlab_nginx_listen_port: 9000
 
 # jenkins
