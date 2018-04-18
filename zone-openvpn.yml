@@ -1,17 +1,10 @@
 ---
-- hosts: web
+- hosts: localhost
   vars_files:
     - vars.yml
   roles:
-    - role: srsp.oracle-java
-      when: enable_oracle_java
-      vars:
-        java_version: "{{java_version}}"
-        java_subversion: "{{java_subversion}}"
-        java_build: "{{java_build}}"
-#        jdk_tarball_hash: "{{jdk_tarball_hash}}"
-        java_remove_download: "{{java_remove_download}}"
-        java_set_javahome: "{{java_set_javahome}}"
-
-
+    - role: sansible.openvpn
+      vars_files:
+          - vars.yml
+      when: enable_openvpn
 
