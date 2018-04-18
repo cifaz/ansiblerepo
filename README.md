@@ -49,9 +49,14 @@ ansible-ops-env 中使用dependencies进行依赖, 在install时会自动安装
    
 未做清单
 gitlab等安装后不需要更新的 加入到yum.conf中
-  
+
+
 ```
-  * publish-ssh-key.yml 不能单独运行 自己生成key然后执行, 具体参见内容
+
+  
+  安装时长  
+  gitlab 6.22 15.5
+  
 
 ##### 待整理
 ```

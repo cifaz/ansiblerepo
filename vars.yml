@@ -51,6 +51,22 @@ jenkins_http_port: 9001
 jenkins_admin_username: admin
 jenkins_admin_password: admin
 
+# jumpserver
+# 如果为true, 则会在本地安装, 如果不是则使用远程, 此时不在本地或远程安装数据库
+db_install_local: true
+db_host: 127.0.0.1
+db_port: 3306
+db_name: jumpserver
+db_username: jumpserver
+db_passwd: 123456
+# webserver
+http_bind_host: 0.0.0.0
+http_listen_port: 8080
+# redis
+redis_host: 127.0.0.1
+redis_port: 6379
+redis_password:
+
 # redis
 redis_version: 2.8.24
 redis_user: redis
@@ -77,4 +93,8 @@ redis_databases: 16
 #    notification_script: false
 #    client_reconfig_script: false
 
+
+# kafka
+kafka_scala_ver : '2.12'
+kafka_ver : '1.1.0'
 
