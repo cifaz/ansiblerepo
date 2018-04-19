@@ -63,7 +63,7 @@ tomcat_version: "8.5.30"
 tomcat_mirrors:
   - http://mirrors.tuna.tsinghua.edu.cn/apache/
   - http://archive.apache.org/dist/tomcat
-tomcat_tmp_storage: /tmp/tomcat-ansible
+tomcat_tmp_storage: /app/down
 tomcat_use_java: true
 tomcat_user_name: tomcat
 tomcat_user_group: tomcat
