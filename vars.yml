@@ -175,4 +175,14 @@ redis_databases: 16
 kafka_scala_ver : '2.12'
 kafka_ver : '1.1.0'
 
+# zookeeper
+zookeeper_version: 3.4.11
+client_port: 2181
+init_limit: 5
+sync_limit: 2
+tick_time: 2000
+zookeeper_cluster_ports: "2888:3888"
+data_dir: /var/lib/zookeeper
+log_dir: /var/log/zookeeper
+zookeeper_tarball_dir: /opt/src
 
