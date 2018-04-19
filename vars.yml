@@ -20,6 +20,7 @@ enable_zookeeper: true
 enable_redis: true
 enable_mongodb: true
 enable_mysql: true
+enable_tomcat: true
 
 # 推送ssh-key到各机器
 ssh_key_dir: /app/data/ssh-keys
