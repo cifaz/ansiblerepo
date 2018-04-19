@@ -176,28 +176,9 @@ kafka_scala_ver : '2.12'
 kafka_ver : '1.1.0'
 
 # mysql
-#mysql_user_home: /root
-#mysql_user_name: root
-#mysql_user_password: root
-#mysql_root_home: /root
-#mysql_root_username: root
-#mysql_root_password: root
-# MySQL connection settings.
 mysql_port: "3307"
 mysql_bind_address: '0.0.0.0'
-mysql_skip_name_resolve: no
 mysql_datadir: /app/data/mysql
-mysql_sql_mode: ''
-mysql_packages:
-      - mariadb
-      - mariadb-server
-      - mariadb-libs
-      - MySQL-python
-      - perl-DBD-MySQL
-mysql_daemon: mariadb
-mysql_log_error: /var/log/mariadb/mariadb.log
-mysql_syslog_tag: mariadb
-mysql_pid_file: /var/run/mariadb/mariadb.pid
 
 
 # zookeeper
