@@ -66,6 +66,49 @@ gitlab_backup_path: "/app/data/gitlab/bak"
 gitlab_version: 10.6.4
 gitlab_nginx_listen_port: 9000
 
+# nexus
+nexus_version: '3.10.0-04'
+nexus_download_dir: '/tmp'
+nexus_backup_dir: '/var/nexus-backup'
+nexus_installation_dir: '/opt'
+nexus_data_dir: '/var/nexus'
+nexus_timezone: 'UTC' # java timezone
+nexus_tmp_dir: '/tmp/nexus'
+nexus_restore_log: '/var/log/nexus-restore.log'
+nexus_backup_log: '/var/log/nexus-backup.log'
+# Nexus default properties
+nexus_default_port: 9002
+nexus_docker_hosted_port: 9080
+nexus_docker_proxy_port: 9081
+nexus_docker_group_port: 9082
+nexus_default_context_path: '/'
+nexus_admin_password: 'changeme'
+nexus_anonymous_access: false
+# http proxy
+nexus_with_http_proxy: false
+nexus_http_proxy_host: "proxy.example.com"
+nexus_http_proxy_port: 8080
+nexus_http_proxy_username: ""
+nexus_http_proxy_password: ""
+nexus_with_https_proxy: false
+nexus_https_proxy_host: "proxy.example.com"
+nexus_https_proxy_port: 8080
+nexus_https_proxy_username: ""
+nexus_https_proxy_password: ""
+# also see _nexus_repos_maven_defaults below
+nexus_repos_maven_proxy:
+  - name: central
+    remote_url: 'https://repo1.maven.org/maven2/'
+    layout_policy: permissive
+  - name: jboss
+    remote_url: 'https://repository.jboss.org/nexus/content/groups/public-jboss/'
+nexus_repos_maven_group:
+  - name: public
+    member_repos:
+      - central
+      - jboss
+
+
 # jenkins
 jenkins_home: /app/data/jenkins
 jenkins_http_port: 9001
