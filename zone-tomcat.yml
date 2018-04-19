@@ -3,7 +3,7 @@
   vars_files:
     - vars.yml
   roles:
-    - role: ChristopherDavenport.universal-tomcat
+    - role: zaxos.tomcat-ansible-role
       vars_files:
         - vars.yml
       when: enable_tomcat
