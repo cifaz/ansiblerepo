@@ -217,3 +217,20 @@ data_dir: /var/lib/zookeeper
 log_dir: /var/log/zookeeper
 zookeeper_tarball_dir: /opt/src
 
+# mongodb
+mongodb_enabled: yes
+mongodb_install: yes
+mongodb_additional_packages:
+- python-selinux
+- python-pymongo
+mongodb_user: mongodb
+mongodb_version: "3.6.4"
+mongodb_conf_auth: no
+mongodb_conf_bind_ip: 127.0.0.1
+mongodb_conf_dbpath: /app/data/mongodb
+# 27400
+mongodb_conf_port: 27017
+
+
+
+
