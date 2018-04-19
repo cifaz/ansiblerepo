@@ -191,7 +191,7 @@ mysql_sql_mode: ''
 mysql_packages:
       - MariaDB
       - MariaDB-server
-      - MariaDB-libs
+#      - MariaDB-libs
       - MySQL-python
       - perl-DBD-MySQL
 mysql_daemon: mariadb
