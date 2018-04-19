@@ -38,6 +38,27 @@ java_set_javahome: true
 dnsmasq_listen_address: 192.168.19.254,127.0.0.1
 dnsmasq_bogus_priv: false
 
+# nginx
+nginx_error_log: "/var/log/nginx/error.log warn"
+nginx_access_log: "/var/log/nginx/access.log main buffer=16k flush=2m"
+nginx_vhosts: []
+# Example vhost below, showing all available options:
+# - listen: "80" # default: "80"
+#   server_name: "example.com" # default: N/A
+#   root: "/var/www/example.com" # default: N/A
+#   index: "index.html index.htm" # default: "index.html index.htm"
+#   filename: "example.com.conf" # Can be used to set the filename of the vhost file.
+#
+#   # Properties that are only added if defined:
+#   server_name_redirect: "www.example.com" # default: N/A
+#   error_page: ""
+#   access_log: ""
+#   error_log: ""
+#   extra_parameters: "" # Can be used to add extra config blocks (multiline).
+#   template: "" # Can be used to override the `nginx_vhost_template` per host.
+#   state: "absent" # To remove the vhost configuration.
+
+
 # gitlab主要配置
 gitlab_external_url: "http://git.ccz.com"
 gitlab_git_data_dir: "/app/data/gitlab/repo"
@@ -50,6 +71,15 @@ jenkins_home: /app/data/jenkins
 jenkins_http_port: 9001
 jenkins_admin_username: admin
 jenkins_admin_password: admin
+
+# openvpn
+openvpn_base_dir: /etc/openvpn
+openvpn_key_dir: /etc/openvpn/keys
+# 4300
+openvpn_port: 1194
+openvpn_server_network: 10.9.0.0
+openvpn_server_netmask: 255.255.255.0
+
 
 # jumpserver
 # 如果为true, 则会在本地安装, 如果不是则使用远程, 此时不在本地或远程安装数据库
@@ -64,8 +94,8 @@ http_bind_host: 0.0.0.0
 http_listen_port: 8080
 # redis
 redis_host: 127.0.0.1
-redis_port: 6379
-redis_password:
+#redis_port: 6379
+#redis_password:
 
 # redis
 redis_version: 2.8.24
@@ -75,7 +105,7 @@ redis_as_service: true
 ## Networking/connection options
 redis_bind: 0.0.0.0
 redis_port: 6379
-redis_password: false
+redis_password:
 # Max connected clients at a time
 redis_maxclients: 10000
 redis_timeout: 0
@@ -97,4 +127,5 @@ redis_databases: 16
 # kafka
 kafka_scala_ver : '2.12'
 kafka_ver : '1.1.0'
+
 
