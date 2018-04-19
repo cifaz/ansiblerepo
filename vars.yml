@@ -207,7 +207,7 @@ mysql_users:
   - name: admin
     host: "%"
     password: admin
-    priv: "test_db.*:ALL"
+    priv: "*.*:ALL"
 
 # zookeeper
 zookeeper_version: 3.4.11
