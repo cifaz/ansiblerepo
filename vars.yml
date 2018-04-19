@@ -128,6 +128,9 @@ redis_host: 127.0.0.1
 #redis_port: 6379
 #redis_password:
 
+# nodejs ("0.12", "4.x", "5.x", "6.x", "8.x")
+nodejs_version: "8.x"
+
 # redis
 redis_version: 2.8.24
 redis_user: redis
