@@ -5,7 +5,7 @@
   roles:
     - role: ansible-zentao
       vars_files:
-          - vars.yml
+        - vars.yml
       when: enable_zentao
 
 
