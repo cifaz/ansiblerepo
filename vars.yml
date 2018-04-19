@@ -223,8 +223,8 @@ mongodb_install: yes
 mongodb_additional_packages:
 - python-selinux
 - python-pymongo
-mongodb_user: mongodb
-mongodb_version: "3.6.4"
+#mongodb_user: mongodb
+mongodb_version: "3.2.19"
 mongodb_conf_auth: no
 mongodb_conf_bind_ip: 127.0.0.1
 mongodb_conf_dbpath: /app/data/mongodb
