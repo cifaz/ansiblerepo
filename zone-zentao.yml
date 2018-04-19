@@ -3,9 +3,9 @@
   vars_files:
     - vars.yml
   roles:
-    - role: ansible-zentao
+    - role: cifaz.zentao
       vars_files:
-        - vars.yml
+          - vars.yml
       when: enable_zentao
 
 
