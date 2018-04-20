@@ -217,12 +217,20 @@ client_port: 2181
 init_limit: 5
 sync_limit: 2
 tick_time: 2000
-zookeeper_cluster_ports: "2888:3888"
 data_dir: /app/data/zookeeper
 log_dir: /app/logs/zookeeper
 zookeeper_tarball_dir: /app/down/zookeeper
 zookeeper_dir: "/opt/zookeeper-{{zookeeper_version}}"
 zookeeper_conf_dir: "{{zookeeper_dir}}"
+# 集群
+zookeeper_cluster_ports: "2888:3888"
+zookeeper_hosts:
+  - host: 192.168.19.253
+    id: 1
+  - host: 192.168.19.252
+    id: 2
+  - host: 192.168.19.251
+    id: 3
 
 # mongodb
 mongodb_version: "3.6"
