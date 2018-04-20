@@ -218,9 +218,11 @@ init_limit: 5
 sync_limit: 2
 tick_time: 2000
 zookeeper_cluster_ports: "2888:3888"
-data_dir: /var/lib/zookeeper
-log_dir: /var/log/zookeeper
-zookeeper_tarball_dir: /opt/src
+data_dir: /app/data/zookeeper
+log_dir: /app/logs/zookeeper
+zookeeper_tarball_dir: /app/down/zookeeper
+zookeeper_dir: /opt/zookeeper-{{zookeeper_version}}
+zookeeper_conf_dir: {{zookeeper_dir}}
 
 # mongodb
 mongodb_version: "3.6"
