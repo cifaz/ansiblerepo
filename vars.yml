@@ -221,8 +221,8 @@ zookeeper_cluster_ports: "2888:3888"
 data_dir: /app/data/zookeeper
 log_dir: /app/logs/zookeeper
 zookeeper_tarball_dir: /app/down/zookeeper
-zookeeper_dir: /opt/zookeeper-{{zookeeper_version}}
-zookeeper_conf_dir: {{zookeeper_dir}}
+zookeeper_dir: "/opt/zookeeper-{{zookeeper_version}}"
+zookeeper_conf_dir: "{{zookeeper_dir}}"
 
 # mongodb
 mongodb_version: "3.6"
