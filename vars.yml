@@ -70,7 +70,7 @@ tomcat_port_connector: 8080
 tomcat_port_redirect: 8443
 tomcat_port_ajp: 8009
 tomcat_port_debug: 8000
-tomcat_temp_download_path: /app/down
+tomcat_temp_download_path: /app/down/tomcat/
 
 # gitlab主要配置
 gitlab_external_url: "http://git.ccz.com"
