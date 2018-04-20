@@ -172,8 +172,6 @@ redis_databases: 16
 
 
 # kafka
-#kafka_scala_ver : '2.12'
-#kafka_ver : '1.1.0'
 kafka_version: "1.1.0"
 kafka_scala_version: "2.12"
 kafka_mirror: 'http://mirrors.tuna.tsinghua.edu.cn/apache/kafka/'
