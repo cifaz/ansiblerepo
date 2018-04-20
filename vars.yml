@@ -185,9 +185,14 @@ mysql_root_password: root
 # MySQL connection settings.
 mysql_port: "3307"
 mysql_bind_address: '0.0.0.0'
-mysql_skip_name_resolve: no
+#mysql_skip_name_resolve: no
 mysql_datadir: /app/data/mysql
-mysql_sql_mode: ''
+#mysql_sql_mode: ''
+mysql_users:
+  - name: admin
+    host: "%"
+    password: admin2018
+    priv: "*.*:ALL,GRANT"
 mysql_packages:
       - MariaDB
       - MariaDB-server

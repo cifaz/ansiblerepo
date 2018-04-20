@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars.yml
+  roles:
+    - role: geerlingguy.mysql
+      vars_files:
+        - vars.yml
+      when: enable_mysql
+
+
+
