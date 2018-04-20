@@ -229,7 +229,7 @@ zookeeper_hosts:
     id: 1
   - host: 192.168.19.252
     id: 2
-  - host: 192.168.19.251
+  - host: 192.168.19.254
     id: 3
 
 # mongodb
