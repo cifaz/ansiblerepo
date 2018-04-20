@@ -172,8 +172,26 @@ redis_databases: 16
 
 
 # kafka
-kafka_scala_ver : '2.12'
-kafka_ver : '1.1.0'
+#kafka_scala_ver : '2.12'
+#kafka_ver : '1.1.0'
+kafka_version: "1.1.0"
+kafka_scala_version: "2.12"
+kafka_mirror: 'http://mirrors.tuna.tsinghua.edu.cn/apache/kafka/'
+kafka_dl_tmp_dir: "/app/down/"
+kafka_install_chdir: "/opt"
+kafka_monit_enabled: true
+kafka_monit_conf_dir: "/etc/monit/conf.d"
+kafka_extra_monit_config: ""
+kafka_pid_directory: "/var/run/"
+kafka_log_directory: "/app/logs/kafka"
+kafka_default_topic_log_directory_prefix: "/app/data/kafka/"
+kafka_brokers:
+- listeners: "PLAINTEXT://:9092"
+  file_basename: "kafka"
+  log_dirs: "/app/logs/kafka-logs"
+kafka_config_contents:
+   # server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002".
+  zookeeper.connect: "localhost:2181"
 
 # mysql
 #mysql_user_home: /root
