@@ -3,9 +3,14 @@
     - localhost
   vars_files:
     - vars.yml
-  roles:
-    - role: "{{item}}"
-      vars_files:
-        - vars.yml
-      with_items: "{{cifaz_roles}}"
+  debug:
+    msg: {{item}}
+    vars_files:
+      - vars.yml
+    with_items: "{{cifaz_roles}}"
+#  roles:
+#    - role: "{{item}}"
+#      vars_files:
+#        - vars.yml
+#      with_items: "{{cifaz_roles}}"
 
