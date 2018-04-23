@@ -2,10 +2,11 @@
     - localhost
   vars_files:
     - vars.yml
-  - name: test..
-    debug:
-      msg: "{{item}}"
-    with_items: "{{cifaz_roles}}"
+  tasks:
+    - name: test..
+      debug:
+        msg: "{{item}}"
+      with_items: "{{cifaz_roles}}"
 #  roles:
 #    - role: "{{item}}"
 #      vars_files:
