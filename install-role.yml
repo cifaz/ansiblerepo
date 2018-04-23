@@ -1,10 +1,9 @@
 ---
-- hosts:
-    - localhost
+- hosts: localhost
   vars_files:
     - vars.yml
   debug:
-    msg: {{item}}
+    msg: "{{item}}"
     vars_files:
       - vars.yml
     with_items: "{{cifaz_roles}}"
