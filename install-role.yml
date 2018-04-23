@@ -1,0 +1,10 @@
+---
+- hosts: "{{cifaz_hosts}}"
+  vars_files:
+    - vars.yml
+  roles:
+    - role: "{{item.name}}"
+      vars_files:
+        - vars.yml
+      with_items: "{{cifaz_roles}}"
+

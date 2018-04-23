@@ -1,3 +1,10 @@
+cifaz_hosts:
+  - localhost
+  - web
+
+cifaz_roles:
+  - srsp.oracle-java
+  - bertvv.dnsmasq
 
 # 是否开启
 # 生成sshkey

@@ -1,0 +1,51 @@
+- name: init centos dir - /app/{{item}}
+  # bak,data,www,server,down,deploy 备份,数据,网站,服务,下载,部署
+#  shell: mkdir -p /app/{bak,data,www,server,down,deploy,logs}
+  file:
+    dest: /app/{{item}}
+    state: directory
+  with_items:
+    - bak
+    - data
+    - www
+    - server
+    - down
+    - deploy
+    - logs
+
+- name: yum install {{item}}
+  yum:
+    name: {{item}}
+  with_items:
+    - wget
+    - sqlite-devel
+    - xz
+    - gcc
+    - automake
+    - zlib-devel
+    - openssl-devel
+    - epel-release
+    - lrzsz
+    - git
+    - policycoreutils-python
+    - openssh-server
+    - openssh-clients
+    - cronie
+    - postfix
+    - patch
+    - zip
+    - unzip
+    - gcc-c++
+    - tcl
+    - ntpdate
+    - pcre*
+    - wget
+    - wget
+
+- name: copy chinese time file
+  copy:
+    src: /usr/share/zoneinfo/Asia/Chongqing
+    dest: /etc/localtime
+
+- name: update time
+  shell: ntpdate cn.pool.ntp.org
