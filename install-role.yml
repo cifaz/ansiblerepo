@@ -7,9 +7,9 @@
       debug:
         msg: "{{item}}"
       with_items: "{{cifaz_roles}}"
-#  roles:
-#    - role: "{{item}}"
-#      vars_files:
-#        - vars.yml
-#      with_items: "{{cifaz_roles}}"
+  roles:
+    - role: "{{item}}"
+      vars_files:
+        - vars.yml
+      with_items: "{{cifaz_roles}}"
 
