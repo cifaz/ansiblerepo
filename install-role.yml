@@ -14,7 +14,7 @@
         name: "{{ item }}"
       vars_files:
           - vars.yml
-      with_items: "{{ cifaz_roles }}"
+      loop: "{{ cifaz_roles }}"
 #    - name: import ansible-xwiki
 #      import_role:
 #        name: ansible-xwiki
