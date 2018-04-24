@@ -8,7 +8,7 @@
     - name: test..
       debug:
         msg: "{{ item }}"
-      with_items: "{{ cifaz_roles }}"
+      loop: "{{ cifaz_roles }}"
     - name: install roles
       include_role:
         name: "{{ item }}"
