@@ -14,7 +14,10 @@
         name: "{{ item }}"
       vars_files:
           - vars.yml
-      loop: "{{ cifaz_roles }}"
+      loop:
+        - srsp.oracle-java
+        - bertvv.dnsmasq
+
 #    - name: import ansible-xwiki
 #      import_role:
 #        name: ansible-xwiki
