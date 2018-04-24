@@ -8,15 +8,16 @@
       debug:
         msg: "install db server"
 
-    - name: copy mysql conf to yum repo
-      copy:
-        src: ./conf/MariaDB.repo
+    - name: copy mysql/mongodb conf to yum repo
+      get_url:
+        path: "{{ item }}"
         dest: /etc/yum.repo.d/
+      loop: "{{ yum_repo }}"
 
-    - name: copy mongodb conf to yum repo
-      copy:
-        src: ./conf/mongodb.repo
-        dest: /etc/yum.repo.d/
+#    - name: copy mongodb conf to yum repo
+#      copy:
+#        path: "{{ mongodb_repo }}"
+#        dest: /etc/yum.repo.d/
 
     - name: install geerlingguy.mysql - mariadb
       include_role:

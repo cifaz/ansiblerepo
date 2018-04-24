@@ -29,6 +29,13 @@ ssh_keys_dir: /root/.ssh/
 ssh_keys_priv_name: id_rsa
 ssh_keys_pub_name: id_rsa.pub
 
+# yum repo
+yum_repo:
+  - https://github.com/cifaz/ansiblerepo/blob/master/conf/mongodb.repo
+  - https://github.com/cifaz/ansiblerepo/blob/master/conf/MariaDB.repo
+mongodb_repo: https://github.com/cifaz/ansiblerepo/blob/master/conf/mongodb.repo
+mysql_repo: https://github.com/cifaz/ansiblerepo/blob/master/conf/MariaDB.repo
+
 # java环境
 java_version: 8
 java_subversion: 161
