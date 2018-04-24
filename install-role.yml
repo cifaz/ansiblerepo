@@ -13,5 +13,7 @@
     - role: "{{ item }}"
       vars_files:
         - vars.yml
-      with_items: "{{ cifaz_roles }}"
+      with_items:
+        - srsp.oracle-java
+        - bertvv.dnsmasq
 
