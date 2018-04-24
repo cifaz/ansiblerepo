@@ -1,31 +1,39 @@
+# generate ssh-keys
+# ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    ssh_keys_dir: /root/.ssh
 
-- name: the ssh-keys dir is exists
-  shell: "ls {{ ssh_keys_dir }}"
-  ignore_errors: true
-  register: result
+  tasks:
+    - name: the ssh-keys dir is exists
+      shell: "ls {{ ssh_keys_dir }}"
+      ignore_errors: true
+      register: result
 
-- name: ssh-keys dir exists
-  debug:
-    msg: ssh-keys dir exists, not create again
-  when: result.rc == 0
+    - name: ssh-keys dir exists
+      debug:
+        msg: ssh-keys dir exists, not create again
+      when: result.rc == 0
 
-- name: create dictory
-  file:
-    path: "{{ ssh_keys_dir }}"
-    state: directory
-  when: result.rc != 0
+    - name: create dictory
+      file:
+        path: "{{ ssh_keys_dir }}"
+        state: directory
+      when: result.rc != 0
 
-- name: the keys is exists
-  shell: "ls {{ ssh_keys_dir }}/id_rsa"
-  ignore_errors: true
-  register: resultFile
+    - name: the keys is exists
+      shell: "ls {{ ssh_keys_dir }}/id_rsa"
+      ignore_errors: true
+      register: resultFile
 
-- name: ssh-keys exists
-  debug:
-    msg: ssh-keys exists, not create again
-  when: resultFile.rc == 0
+    - name: ssh-keys exists
+      debug:
+        msg: ssh-keys exists, not create again
+      when: resultFile.rc == 0
 
-- name: generate ssh-keys | generate key pair
-  command: "ssh-keygen -t rsa -b 2048 -C '' -P '' -f {{ ssh_keys_dir }}/id_rsa -q"
-  become: false
-  when: resultFile.rc != 0
+    - name: generate ssh-keys | generate key pair
+      command: "ssh-keygen -t rsa -b 2048 -C '' -P '' -f {{ ssh_keys_dir }}/id_rsa -q"
+      become: false
+      when: resultFile.rc != 0
