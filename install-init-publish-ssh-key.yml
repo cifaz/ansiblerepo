@@ -8,6 +8,8 @@
 ---
 - hosts: all
   gather_facts: no
+  vars:
+    ssh_keys_dir: /root/.ssh/
 
   tasks:
   - name: checking false
@@ -18,5 +20,5 @@
 #    shell: ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
   - name: install ssh key - no login
     authorized_key: user=root 
-                    key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+                    key="{{ lookup('file', '{{ ssh_keys_dir }}/id_rsa.pub') }}"
                     state=present
