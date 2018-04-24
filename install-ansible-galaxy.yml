@@ -2,7 +2,7 @@
 - hosts:
     - localhost
   tasks:
-    - name: "install ansible galaxy {{ item }}"
+    - name: "install ansible galaxys"
       shell: "ansible-galaxy install {{ item }}"
       loop:
         - geerlingguy.mysql

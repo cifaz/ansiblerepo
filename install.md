@@ -23,7 +23,7 @@ cd ansiblerepo && \
 chmod -R u+x ./*.sh && \
 ./install-centos-aliyum.sh
 
-# 初始化
+# 初始化, 约4分钟
 ./install-centos-ops-init.sh
 
 ````
@@ -33,11 +33,15 @@ chmod -R u+x ./*.sh && \
     ```
        ./install-centos-aliyum.yml.sh
     ```
- - [环境初始化EPEL](centos-env-init.sh)   
+ - [环境初始化EPEL](bak/centos-env-init.sh)   
     1.可以初始化基本目录,   
     2.初始化常用依赖组件/工具(如ansible/jumpserver的依赖)   
     3.更换时区和设置中国时间, 更新yum缓存  
     4.**其它自己按需设定**
+    ```
+      # 初始化
+      ./install-centos-ops-init.sh
+    ```
 
 ### 初始化ansible主机 目前仅限于centos7
  - 正常情况为localhost, 本机
@@ -45,13 +49,14 @@ chmod -R u+x ./*.sh && \
  - 基本环境初始化
  ````
  以上常用依赖(环境初始化EPEL)已经初始化过EPEL了, 如果没有使用以上脚本请自行初始化环境
+ 约2分钟
  yum install -y ansible
    
  安装完毕检查
  ansible --version
    
  ansible配置
- mkdir -p /app/data/ansible/{hosts, playbooks}
+ mkdir -p /app/data/ansible/{hosts,playbooks}
    
  vi /etc/ansible/ansible.cfg
  加下如下配置 [defaults]节点下
@@ -61,7 +66,8 @@ chmod -R u+x ./*.sh && \
  callback_whitelist = profile_tasks
  
  初始化完毕, cifaz库, 安装时会把常用库都安装进来
- cd /app/data/ansible/playbooks && git clone https://github.com/cifaz/ansiblerepo.git
+ cd /app/data/ansible/playbooks && \
+ git clone https://github.com/cifaz/ansiblerepo.git
    
  开始准备自动部署吧
  ````
@@ -71,6 +77,10 @@ chmod -R u+x ./*.sh && \
   
 ### 测试环境安装部署
 ```
+- 准备playbook
+  cp ansiblerepo/*.sh ./ && \
+  cp ansiblerepo/*.yml ./ 
+  
 - 建立机器配置
   建议同类机器建立, 如
   web: web机器
@@ -80,18 +90,34 @@ chmod -R u+x ./*.sh && \
   public: 公共组件机器
   各种机器类型又可以再进行细分
    
-  touch /app/data/ansible/hosts/web
-  touch /app/data/ansible/hosts/db
-  touch /app/data/ansible/hosts/local
-  touch /app/data/ansible/hosts/public
+  touch /app/data/ansible/hosts/web && \ 
+  touch /app/data/ansible/hosts/db && \
+  touch /app/data/ansible/hosts/local && \
+  touch /app/data/ansible/hosts/public 
   
-- 下载任务编排 - 机器环境分布
-  暂时没办法使用roles, 直接使用playbook进行任务编排
-  cd /app/data/ansible/playbooks/ && git clone https://github.com/cifaz/ansiblerepo.git
+  例:
+  共3台机器
+  192.168.19.254 / 253 / 252
+  ops机, localhost不分配
+  db: 253
+  web: 252
+  
+  // web
+  vi /app/data/ansible/hosts/web
+  [web]
+  192.168.19.252
+  
+  // db 
+  vi /app/data/ansible/hosts/db
+  [db]
+  192.168.19.253
+  
+- ops机安装galaxy, 约15分钟, 下载所有依赖项, 有些慢, 主要看网速了
+  ansible-playbook install install-ansible-galaxy.yml
   
 - 初始化分发ssh-key
-  ansible-playbook generate-ssh-key.yml
-  ansible-playbook push-ssh-key.yml
+  ansible-playbook install-init-generate-ssh-key.yml
+  ansible-playbook install-init-publish-ssh-key.yml
   
 - 分环境(请自行划分)
   运维机一台, jdk, jumpserver, dnsmasq, openvpn, jenkins, nginx, zentao, xwiki
@@ -107,7 +133,6 @@ chmod -R u+x ./*.sh && \
   zookeeper: db-server web-server localhost
   
   这些server预置对应哪些服务
-  
   
 - 运维机
   常规安装, 

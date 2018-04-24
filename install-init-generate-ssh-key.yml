@@ -1,0 +1,38 @@
+# generate ssh-keys
+# ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
+---
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: the ssh-keys dir is exists
+      shell: ls /app/data/ssh-keys/
+      ignore_errors: true
+      register: result
+
+    - name: ssh-keys dir exists
+      debug:
+        msg: ssh-keys dir exists, not create again
+      when: result.rc == 0
+
+    - name: create dictory
+      file:
+        path: /app/data/ssh-keys/
+        state: directory
+      when: result.rc != 0
+
+    - name: the keys is exists
+      shell: ls /app/data/ssh-keys/id_rsa
+      ignore_errors: true
+      register: resultFile
+
+    - name: ssh-keys exists
+      debug:
+        msg: ssh-keys exists, not create again
+      when: resultFile.rc == 0
+
+    - name: generate ssh-keys | generate key pair
+      command: ssh-keygen -t rsa -b 2048 -C '' -P '' -f /app/data/ssh-keys/id_rsa -q
+      become: false
+      when: resultFile.rc != 0
