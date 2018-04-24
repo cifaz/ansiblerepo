@@ -9,7 +9,8 @@
 - hosts: all
   gather_facts: no
   vars:
-    ssh_keys_dir: /root/.ssh/
+#    ssh_keys_dir: /root/.ssh/
+    ssh_keys_dir: /app/data/ssh-keys/
 
   tasks:
   - name: checking false
