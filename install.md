@@ -141,7 +141,17 @@ chmod -R u+x ./*.sh && \
   nginx, /etc/nginx/nginx.conf 及 /etc/nginx/conf.d/下的文件需要建立, 模板
   dnsmasq, /etc/dnsmasq.d/下建立自己的域名拦截解析, 模板
  
-- 配置 var.yml 修改为自己合适的配置
+- 配置 var.yml 修改为自己合适的配置, 
+  其它配置如路径, 规划为通用路径, 可不修改, 但请修改各应用端口号及IP
+ 
+- 配置安装脚本 前缀为install-zone的为各服务器脚本, 此为示例, 可修改为合适自己的脚本 
+  
+- 安装
+  ansible-playbook install-zone-db.yml
+  ansible-playbook install-zone-zookeepr.yml
+  ansible-playbook install-zone-ops.yml
+  ansible-playbook install-zone-web.yml
+  
 ```
 
 
