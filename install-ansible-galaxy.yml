@@ -1,0 +1,26 @@
+
+- hosts:
+    - localhost
+  tasks:
+    - name: "install ansible galaxy {{ item }}"
+      shell: "ansible-galaxy install {{ item }}"
+      loop:
+        - geerlingguy.mysql
+        - greendayonfire.mongodb
+        - DavidWittman.redis
+        - wtanaka.apache-kafka
+        - srsp.oracle-java
+        - bertvv.dnsmasq
+        - sansible.openvpn
+        - geerlingguy.jenkins
+        - geerlingguy.nginx
+        - cifaz.zentao
+        - cifaz.xwiki
+        - cifaz.jumpserver
+        - savoirfairelinux.nexus3-oss
+        - geerlingguy.gitlab
+        - cifaz.gitlab-zh
+        - geerlingguy.nodejs
+        - zaxos.tomcat-ansible-role
+        - AnsibleShipyard.ansible-zookeeper
+

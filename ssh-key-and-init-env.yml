@@ -26,6 +26,6 @@
             src: "{{ssh_key_dir}}/{{ssh_key_pub_name}}"
   tasks:
      # 更改YUM
-     - import_tasks: aliyum-install.yml
+     - import_tasks: install-aliyum.yml
      # 统一创建目录 安装依赖 更换中国时间
      - import_tasks: init-centos.yml

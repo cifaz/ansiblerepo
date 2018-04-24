@@ -7,8 +7,30 @@ cifaz.ansible-ops-env
 快速建立起自己的一套基本的自动化环境  
 21个 playbook 对应19个Role
 
+* 机器初始化成功
+* 下载库
+````
+# 约30-50秒
+mkdir -p /app/down/ && \
+cd /app/down/ && \
+yum install -y git
+    
+# 约1分钟
+git clone https://github.com/cifaz/ansiblerepo.git
+  
+# 照如下, 初始化yum环境
+cd ansiblerepo && \
+./install-centos-aliyum.sh
+
+# 初始化
+
+````
+
 ### 你在使用本工具前可以先使用如下工具初始化你的基本环境
  - [阿里云YUM安装脚本](yumforali.sh) 可以快速将你的服务器切换为阿里云YUM
+    ```
+       ./install-centos-aliyum.yml.sh
+    ```
  - [环境初始化EPEL](centos-env-init.sh)   
     1.可以初始化基本目录,   
     2.初始化常用依赖组件/工具(如ansible/jumpserver的依赖)   
