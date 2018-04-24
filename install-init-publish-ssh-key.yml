@@ -16,5 +16,5 @@
 #    shell: ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
   - name: install ssh key - no login
     authorized_key: user=root 
-                    key="{{ lookup('file', '/app/data/ssh-keys//id_rsa.pub') }}"
+                    key="{{ lookup('file', '/app/data/ssh-keys/id_rsa.pub') }}"
                     state=present
