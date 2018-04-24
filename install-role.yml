@@ -9,7 +9,7 @@
       debug:
         msg: "{{ item }}"
       with_items: "{{ cifaz_roles }}"
-    - name: "import {{ item }}"
+    - name: install roles
       import_role:
         name: "{{ item }}"
       vars_files:
