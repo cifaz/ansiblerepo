@@ -24,10 +24,10 @@ enable_mongodb: true
 enable_redis: true
 enable_kafka: true
 
-# 推送ssh-key到各机器
-ssh_key_dir: /app/data/ssh-keys
-ssh_key_priv_name: id_rsa
-ssh_key_pub_name: id_rsa.pub
+# 推送ssh-key到各机器, ssh_keys_dir别改变
+ssh_keys_dir: /root/.ssh/
+ssh_keys_priv_name: id_rsa
+ssh_keys_pub_name: id_rsa.pub
 
 # java环境
 java_version: 8
@@ -66,7 +66,7 @@ tomcat_version: 8.5.30
 tomcat_install_java: false
 tomcat_user: tomcat
 tomcat_group: tomcat
-tomcat_install_path: /app/server
+tomcat_install_path: /app/server/
 tomcat_port_shutdown: 8005
 tomcat_port_connector: 8080
 tomcat_port_redirect: 8443
@@ -93,23 +93,9 @@ nexus_restore_log: '/var/log/nexus/nexus-restore.log'
 nexus_backup_log: '/var/log/nexus/nexus-backup.log'
 # Nexus default properties
 nexus_default_port: 9002
-nexus_docker_hosted_port: 9080
-nexus_docker_proxy_port: 9081
-nexus_docker_group_port: 9082
 nexus_default_context_path: '/'
 nexus_admin_password: 'admin888'
 nexus_anonymous_access: false
-# http proxy
-nexus_with_http_proxy: false
-nexus_http_proxy_host: "proxy.example.com"
-nexus_http_proxy_port: 8080
-nexus_http_proxy_username: ""
-nexus_http_proxy_password: ""
-nexus_with_https_proxy: false
-nexus_https_proxy_host: "proxy.example.com"
-nexus_https_proxy_port: 8080
-nexus_https_proxy_username: ""
-nexus_https_proxy_password: ""
 
 
 # jenkins
@@ -126,11 +112,10 @@ openvpn_port: 1194
 openvpn_server_network: 10.9.0.0
 openvpn_server_netmask: 255.255.255.0
 
-
 # jumpserver
 # 如果为true, 则会在本地安装, 如果不是则使用远程, 此时不在本地或远程安装数据库
 db_install_local: true
-db_host: 127.0.0.1
+db_host: 192.168.19.254
 db_port: 3306
 db_name: jumpserver
 db_username: jumpserver
@@ -139,7 +124,7 @@ db_passwd: 123456
 http_bind_host: 0.0.0.0
 http_listen_port: 8080
 # redis
-redis_host: 127.0.0.1
+redis_host: 192.168.19.253
 #redis_port: 6379
 #redis_password:
 
@@ -201,7 +186,7 @@ kafka_config_contents:
 mysql_root_username: root
 mysql_root_password: root
 # MySQL connection settings.
-mysql_port: "3307"
+mysql_port: "3306"
 mysql_bind_address: '0.0.0.0'
 #mysql_skip_name_resolve: no
 mysql_datadir: /app/data/mysql
@@ -252,7 +237,7 @@ zookeeper_hosts:
 
 # mongodb
 mongodb_version: "3.6"
-mongodb_net_bindip: 127.0.0.1
+mongodb_net_bindip: 192.168.19.253
 mongodb_net_maxconns: 65536
 mongodb_net_port: 27017
 mongodb_storage_dbpath: /app/data/mongodb

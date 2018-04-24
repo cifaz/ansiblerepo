@@ -3,8 +3,8 @@
 ---
 - hosts: localhost
   gather_facts: no
-  vars:
-    ssh_keys_dir: /root/.ssh
+  vars_files:
+        - vars.yml
 
   tasks:
     - name: the ssh-keys dir is exists
@@ -24,7 +24,7 @@
       when: result.rc != 0
 
     - name: the keys is exists
-      shell: "ls {{ ssh_keys_dir }}/id_rsa"
+      shell: "ls {{ ssh_keys_dir }}/{{ ssh_keys_priv_name }}"
       ignore_errors: true
       register: resultFile
 
@@ -34,6 +34,6 @@
       when: resultFile.rc == 0
 
     - name: generate ssh-keys | generate key pair
-      command: "ssh-keygen -t rsa -b 2048 -C '' -P '' -f {{ ssh_keys_dir }}/id_rsa -q"
+      command: "ssh-keygen -t rsa -b 2048 -C '' -P '' -f {{ ssh_keys_dir }}/{{ ssh_keys_priv_name }} -q"
       become: false
       when: resultFile.rc != 0

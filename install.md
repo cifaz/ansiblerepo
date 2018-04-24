@@ -115,7 +115,7 @@ chmod -R u+x ./*.sh && \
 - ops机安装galaxy, 约15分钟, 下载所有依赖项, 有些慢, 主要看网速了
   ansible-playbook install install-ansible-galaxy.yml
   
-- 初始化分发ssh-key
+- 初始化分发ssh-key, 不重复发放
   ansible-playbook install-init-generate-ssh-key.yml
   # 注:此步时, 需要所有机器密码一致 
   ansible-playbook install-init-publish-ssh-key.yml -k
@@ -140,6 +140,8 @@ chmod -R u+x ./*.sh && \
   如下配置需要自己处理
   nginx, /etc/nginx/nginx.conf 及 /etc/nginx/conf.d/下的文件需要建立, 模板
   dnsmasq, /etc/dnsmasq.d/下建立自己的域名拦截解析, 模板
+ 
+- 配置 var.yml 修改为自己合适的配置
 ```
 
 
