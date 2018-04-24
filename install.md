@@ -117,7 +117,8 @@ chmod -R u+x ./*.sh && \
   
 - 初始化分发ssh-key
   ansible-playbook install-init-generate-ssh-key.yml
-  ansible-playbook install-init-publish-ssh-key.yml
+  # 注:此步时, 需要所有机器密码一致 
+  ansible-playbook install-init-publish-ssh-key.yml -k
   
 - 分环境(请自行划分)
   运维机一台, jdk, jumpserver, dnsmasq, openvpn, jenkins, nginx, zentao, xwiki
