@@ -10,7 +10,7 @@
         msg: "{{ item }}"
       with_items: "{{ cifaz_roles }}"
     - name: install roles
-      import_role:
+      include_role:
         name: "{{ item }}"
       vars_files:
           - vars.yml
