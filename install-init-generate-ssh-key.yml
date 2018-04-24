@@ -1,7 +1,6 @@
 # generate ssh-keys
 # ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
 ---
----
 - hosts: all
   gather_facts: no
 
