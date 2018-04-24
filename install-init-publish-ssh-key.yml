@@ -16,8 +16,6 @@
     shell: export ANSIBLE_HOST_KEY_CHECKING=False
   - name: generate ssh-keys
     import_task: install-init-generate-ssh-key.yml
-#  - name: generate ssh key
-#    shell: ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa
   - name: install ssh key - no login
     authorized_key: user=root 
                     key="{{ lookup('file', '{{ ssh_keys_dir }}/id_rsa.pub') }}"
