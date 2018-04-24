@@ -9,13 +9,11 @@ mkdir -p /app/{bak, data, www, server, down, deploy}
 yum install -y wget sqlite-devel xz gcc automake zlib-devel openssl-devel epel-release git
 yum install -y policycoreutils-python openssh-server openssh-clients cronie postfix patch
 yum install -y zip unzip lrzsz
-yum install -y gcc-c++
-yum -y install tcl
-yum -y install ntpdate
-yum -y install pcre*
+yum install -y gcc-c++ tcl pcre*
+yum install -y ntpdate
 
 # 更换中国时间
 \cp -f /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
 ntpdate cn.pool.ntp.org
 
-yum update
+yum update -y

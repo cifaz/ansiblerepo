@@ -18,11 +18,13 @@ yum install -y git
 # 约1分钟
 git clone https://github.com/cifaz/ansiblerepo.git
   
-# 照如下, 初始化yum环境
+# 照如下, 初始化yum环境, 约7分钟, 会更新yum包
 cd ansiblerepo && \
+chmod -R u+x ./*.sh && \
 ./install-centos-aliyum.sh
 
 # 初始化
+./install-centos-ops-init.sh
 
 ````
 
