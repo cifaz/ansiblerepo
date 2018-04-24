@@ -78,8 +78,9 @@ chmod -R u+x ./*.sh && \
 ### 测试环境安装部署
 ```
 - 准备playbook
-  cp ansiblerepo/*.sh ./ && \
-  cp ansiblerepo/*.yml ./ 
+  cp -rf ansiblerepo/*.sh ./ && \
+  cp -rf ansiblerepo/conf/ ./ && \
+  cp -rf ansiblerepo/*.yml ./ 
   
 - 建立机器配置
   建议同类机器建立, 如
