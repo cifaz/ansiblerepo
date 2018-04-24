@@ -10,12 +10,12 @@
 
     - name: copy mysql conf to yum repo
       copy:
-        name: ./conf/MariaDB.repo
+        src: ./conf/MariaDB.repo
         dest: /etc/yum.repo.d/
 
     - name: copy mongodb conf to yum repo
       copy:
-        name: ./conf/mongodb.repo
+        src: ./conf/mongodb.repo
         dest: /etc/yum.repo.d/
 
     - name: install geerlingguy.mysql - mariadb
