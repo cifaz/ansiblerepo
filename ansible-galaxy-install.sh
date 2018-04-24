@@ -12,7 +12,7 @@ ansible-galaxy install cifaz.ops-env
 ansible-galaxy install cifaz.zentao
 ansible-galaxy install cifaz.jumpserver
 ansible-galaxy install DavidWittman.redis
-ansible-galaxy install debops.dnsmasq
+ansible-galaxy install bertvv.dnsmasq
 
 ansible-galaxy install geerlingguy.java
 ansible-galaxy install geerlingguy.mysql
@@ -22,7 +22,7 @@ ansible-galaxy install geerlingguy.gitlab
 ansible-galaxy install geerlingguy.jenkins
 ansible-galaxy install jasonroyle.rabbitmq
 ansible-galaxy install kanedafromparis.xwiki-tomcat
-ansible-galaxy install kyl191.openvpn
+ansible-galaxy install sansible.openvpn
 ansible-galaxy install savoirfairelinux.nexus3-oss
 ansible-galaxy install greendayonfire.mongodb
 ansible-galaxy install tersmitten.ssh-keys

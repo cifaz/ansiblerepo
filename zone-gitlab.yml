@@ -7,6 +7,7 @@
       vars_files:
         - vars.yml
       when: enable_gitlab
+
     - role: cifaz.gitlab-zh
       vars_files:
         - vars.yml

@@ -1,0 +1,66 @@
+
+- hosts:
+    - localhost
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: install ops server
+      debug:
+        msg: "install ops server"
+
+    - name: 1.install srsp.oracle-java
+      include_role:
+        name: srsp.oracle-java
+      vars_files:
+          - vars.yml
+      when: enable_oracle_java
+
+    - name: 2.install bertvv.dnsmasq
+      include_role:
+        name: bertvv.dnsmasq
+      vars_files:
+          - vars.yml
+      when: enable_dnsmasq
+
+    - name: 3.install sansible.openvpn
+      include_role:
+        name: sansible.openvpn
+      vars_files:
+          - vars.yml
+      when: enable_openvpn
+
+    - name: 4.install geerlingguy.jenkins
+      include_role:
+        name: geerlingguy.jenkins
+      vars_files:
+          - vars.yml
+      when: enable_jenkins
+
+    - name: 5.install geerlingguy.nginx
+      include_role:
+        name: geerlingguy.nginx
+      vars_files:
+          - vars.yml
+      when: enable_nginx
+
+    - name: 6.install cifaz.zentao
+      include_role:
+        name: cifaz.zentao
+      vars_files:
+          - vars.yml
+      when: enable_zentao
+
+    - name: 7.install cifaz.xwiki
+      include_role:
+        name: cifaz.xwiki
+      vars_files:
+          - vars.yml
+      when: enable_xwiki
+
+#    装jumpserver前, 装好redis和mysql, 最好先运行dbserver
+#    - name: 8.install cifaz.jumpserver
+#      include_role:
+#        name: cifaz.jumpserver
+#      vars_files:
+#          - vars.yml
+#      when: enable_jumpserver

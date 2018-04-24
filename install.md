@@ -1,7 +1,7 @@
 cifaz.ansible-ops-env
 ========================
 
-通用环境建立工具  
+通用环境建立库
 本工具的目的是使用ansible尽可能快的时间建立一套测试/生产环境  
 因此本工具是一套集成工具, 可以使用一些约定方法,   
 快速建立起自己的一套基本的自动化环境  
@@ -76,16 +76,13 @@ cifaz.ansible-ops-env
   数据库一台, kafka, redis, mysql, mongodb
   基础服务, 业务服务, 暂无, 和WEB服务有点像, 如CAS, dubbo监控, 部署服务等
   
-  ops-server:
-    - localhost
-  ware-server
-  web-server
-  web-base-server
-  db-server
+  测试规划hosts
+  localhost: ops-server ware-server
+  web: web-server web-base-server
+  db: db-server
+  zookeeper: db-server web-server localhost
   
   这些server预置对应哪些服务
-  
-  
   
   
 - 运维机

@@ -1,0 +1,30 @@
+- hosts:
+    - web
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: install web servers
+      debug:
+        msg: "install web servers"
+
+    - name: install geerlingguy.nodejs
+      include_role:
+        name: geerlingguy.nodejs
+      vars_files:
+          - vars.yml
+      when: enable_nodejs
+
+    - name: install srsp.oracle-java
+      include_role:
+        name: srsp.oracle-java
+      vars_files:
+          - vars.yml
+      when: enable_oracle_java
+
+    - name: install zaxos.tomcat-ansible-role
+      include_role:
+        name: zaxos.tomcat-ansible-role
+      vars_files:
+          - vars.yml
+      when: enable_tomcat
+

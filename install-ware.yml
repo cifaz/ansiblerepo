@@ -1,0 +1,30 @@
+
+- hosts:
+    - localhost
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: install ware
+      debug:
+        msg: "install ware"
+
+    - name: install savoirfairelinux.nexus3-oss
+      include_role:
+        name: savoirfairelinux.nexus3-oss
+      vars_files:
+          - vars.yml
+      when: enable_nexus3
+
+    - name: install geerlingguy.gitlab
+      include_role:
+        name: geerlingguy.gitlab
+      vars_files:
+          - vars.yml
+      when: enable_gitlab
+
+    - name: install cifaz.gitlab-zh
+      include_role:
+        name: cifaz.gitlab-zh
+      vars_files:
+          - vars.yml
+      when: enable_gitlab_zh

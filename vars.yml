@@ -1,33 +1,28 @@
-cifaz_hosts:
-  - localhost
-  - web
-
-cifaz_roles:
-  - srsp.oracle-java
-  - bertvv.dnsmasq
 
 # 是否开启
 # 生成sshkey
 enable_generate_ssh_key: false
 enable_push_ssh_key: true
+enable_nodejs: true
+enable_tomcat: true
 enable_oracle_java: true
 enable_dnsmasq: true
+enable_openvpn: true
+enable_jenkins: true
+enable_nginx: true
+enable_zentao: true
+enable_xwiki: true
+enable_jumpserver: true
+
+enable_nexus3: true
 enable_gitlab: true
 enable_gitlab_zh: true
-enable_jenkins: true
-enable_zentao: true
-enable_jumpserver: true
-enable_openvpn: true
-enable_nginx: true
-enable_xwiki: true
-enable_nexus3: true
-enable_nodejs: true
-enable_kafka: true
 enable_zookeeper: true
-enable_redis: true
-enable_mongodb: true
+
 enable_mysql: true
-enable_tomcat: true
+enable_mongodb: true
+enable_redis: true
+enable_kafka: true
 
 # 推送ssh-key到各机器
 ssh_key_dir: /app/data/ssh-keys

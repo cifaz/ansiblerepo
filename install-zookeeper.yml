@@ -1,0 +1,18 @@
+# add_host 是否可以替换hosts?
+
+- hosts:
+    - web
+    - db
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: install zookeeper
+      debug:
+        msg: "install zookeeper"
+
+    - name: install AnsibleShipyard.ansible-zookeeper
+      include_role:
+        name: AnsibleShipyard.ansible-zookeeper
+      vars_files:
+          - vars.yml
+      when: enable_zookeeper
