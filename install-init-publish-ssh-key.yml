@@ -13,13 +13,13 @@
     ssh_keys_dir: /app/data/ssh-keys/
 
   tasks:
-  - name: checking false
-    shell: export ANSIBLE_HOST_KEY_CHECKING=False
+    - name: checking false
+      shell: export ANSIBLE_HOST_KEY_CHECKING=False
 
-  - name: generate ssh-keys
-    import_tasks: install-init-generate-ssh-key.yml
+    - name: generate ssh-keys
+      import_tasks: install-init-generate-ssh-key.yml
 
-  - name: install ssh key - no login
-    authorized_key: user=root 
+    - name: install ssh key - no login
+      authorized_key: user=root
                     key="{{ lookup('file', '{{ ssh_keys_dir }}/id_rsa.pub') }}"
                     state=present
