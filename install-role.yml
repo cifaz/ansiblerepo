@@ -14,6 +14,11 @@
         name: srsp.oracle-java
       vars_files:
           - vars.yml
+    - name: import ansible-xwiki
+      import_role:
+        name: ansible-xwiki
+      vars_files:
+          - vars.yml
 #  roles:
 #    - role: "{{ item }}"
 #      vars_files:
