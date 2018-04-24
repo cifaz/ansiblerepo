@@ -10,7 +10,7 @@
 
     - name: copy mysql/mongodb conf to yum repo
       get_url:
-        path: "{{ item }}"
+        url: "{{ item }}"
         dest: /etc/yum.repo.d/
       loop: "{{ yum_repo }}"
 
