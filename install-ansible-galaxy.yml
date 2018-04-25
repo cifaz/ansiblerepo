@@ -5,6 +5,7 @@
     - name: "install ansible galaxys"
       shell: "ansible-galaxy install {{ item }}"
       loop:
+        - tersmitten.ssh-keys
         - geerlingguy.mysql
         - greendayonfire.mongodb
         - DavidWittman.redis

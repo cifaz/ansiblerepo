@@ -11,7 +11,7 @@ enable_openvpn: false
 enable_jenkins: true
 enable_nginx: true
 enable_zentao: true
-enable_xwiki: true
+enable_xwiki: false
 enable_jumpserver: true
 
 enable_nexus3: true
