@@ -25,7 +25,8 @@ enable_redis: true
 enable_kafka: true
 
 # 推送ssh-key到各机器, ssh_keys_dir别改变
-ssh_keys_dir: /root/.ssh/
+#ssh_keys_dir: /root/.ssh/
+ssh_keys_dir: /app/data/ssh-keys
 ssh_keys_priv_name: id_rsa
 ssh_keys_pub_name: id_rsa.pub
 
