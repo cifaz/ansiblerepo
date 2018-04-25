@@ -25,8 +25,8 @@ enable_redis: true
 enable_kafka: true
 
 # 推送ssh-key到各机器, ssh_keys_dir别改变
-#ssh_keys_dir: /root/.ssh/
-ssh_keys_dir: /app/data/ssh-keys
+ssh_keys_dir: /root/.ssh/
+#ssh_keys_dir: /app/data/ssh-keys
 ssh_keys_priv_name: id_rsa
 ssh_keys_pub_name: id_rsa.pub
 
@@ -39,9 +39,12 @@ mysql_repo: conf/MariaDB.repo
 
 # java环境
 java_version: 8
-java_subversion: 171
+java_subversion: 172
 java_build: 11
-jdk_tarball_hash: 512cd62ec5174c3487ac17c61aaa89e8
+# 171 11
+#jdk_tarball_hash: 512cd62ec5174c3487ac17c61aaa89e8
+# 172 11
+jdk_tarball_hash: a58eab1ec242421181065cdc37240b08
 java_remove_download: false
 java_set_javahome: true
 
