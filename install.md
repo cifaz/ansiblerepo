@@ -149,7 +149,7 @@ chmod -R u+x ./*.sh && \
   
 - 安装
   # 约8分钟
-  ansible-playbook install-zone-zookeepr.yml
+  ansible-playbook install-zone-zookeeper.yml
   # 约55分, kafka依赖zookeeper, 需要安装yum repo (mysql,19 + mongodb,31 + redis/kafka,5)
   ansible-playbook install-zone-db.yml
   # 约40分钟, jumpserver依赖redis, mysql
