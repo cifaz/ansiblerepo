@@ -40,7 +40,7 @@
     - ntpdate
     - pcre*
     - wget
-    - wget
+    - lsof
 
 - name: copy chinese time file
   copy:

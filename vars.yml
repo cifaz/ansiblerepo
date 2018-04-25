@@ -39,9 +39,9 @@ mysql_repo: conf/MariaDB.repo
 
 # java环境
 java_version: 8
-java_subversion: 161
-java_build: 12
-#jdk_tarball_hash: 512cd62ec5174c3487ac17c61aaa89e8
+java_subversion: 171
+java_build: 11
+jdk_tarball_hash: 512cd62ec5174c3487ac17c61aaa89e8
 java_remove_download: false
 java_set_javahome: true
 
