@@ -1,8 +1,8 @@
-- name: init centos dir - /app/{{item}}
+- name: init centos dir
   # bak,data,www,server,down,deploy 备份,数据,网站,服务,下载,部署
 #  shell: mkdir -p /app/{bak,data,www,server,down,deploy,logs}
   file:
-    dest: /app/{{item}}
+    dest: "/app/{{item}}"
     state: directory
   with_items:
     - bak
@@ -13,9 +13,9 @@
     - deploy
     - logs
 
-- name: yum install {{item}}
+- name: yum install dev
   yum:
-    name: {{item}}
+    name: "{{item}}"
   with_items:
     - wget
     - sqlite-devel

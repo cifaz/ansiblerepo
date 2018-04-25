@@ -113,7 +113,7 @@ chmod -R u+x ./*.sh && \
   [db]
   192.168.19.253
   
-- ops机安装galaxy, 约15分钟, 下载所有依赖项, 有些慢, 主要看网速了
+- ops机安装galaxy, 约5分钟, 下载所有依赖项, 有些慢, 主要看网速了
   ansible-playbook install-ansible-galaxy.yml
   
 - 初始化分发ssh-key, 不重复发放
