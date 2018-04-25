@@ -10,11 +10,6 @@
   gather_facts: no
   vars_files:
       - vars.yml
-
-  pre_tasks:
-    - name: checking false
-      shell: export ANSIBLE_HOST_KEY_CHECKING=False
-
   roles:
     - role: tersmitten.ssh-keys
       when: enable_push_ssh_key
