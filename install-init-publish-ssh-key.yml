@@ -11,11 +11,25 @@
   vars_files:
       - vars.yml
 
-  tasks:
+  pre_tasks:
     - name: checking false
       shell: export ANSIBLE_HOST_KEY_CHECKING=False
 
-    - name: install ssh key - no login
-      authorized_key: user=root
-                    key="{{ lookup('file', '{{ ssh_keys_dir }}/{{ ssh_keys_pub_name }}') }}"
-                    state=present
+  roles:
+    - role: tersmitten.ssh-keys
+      when: enable_push_ssh_key
+      vars:
+        ssh_keys_private_keys:
+          - owner: root
+            src: "{{ssh_keys_dir}}/{{ssh_keys_priv_name}}"
+        ssh_keys_public_keys:
+          - owner: root
+            src: "{{ssh_keys_dir}}/{{ssh_keys_pub_name}}"
+        ssh_keys_authorized_keys:
+          - owner: root
+            src: "{{ssh_keys_dir}}/{{ssh_keys_pub_name}}"
+  tasks:
+     # 更改YUM
+     - import_tasks: install-centos-aliyum.yml
+     # 统一创建目录 安装依赖 更换中国时间
+     - import_tasks: install-centos-init.yml
