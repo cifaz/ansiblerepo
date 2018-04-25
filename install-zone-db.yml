@@ -20,19 +20,19 @@
         src: "{{ mysql_repo }}"
         dest: /etc/yum.repos.d/
 
-#    - name: install geerlingguy.mysql - mariadb
-#      include_role:
-#        name: geerlingguy.mysql
-#      vars_files:
-#          - vars.yml
-#      when: enable_mysql
-#
-#    - name: install greendayonfire.mongodb
-#      include_role:
-#        name: greendayonfire.mongodb
-#      vars_files:
-#          - vars.yml
-#      when: enable_mongodb
+    - name: install geerlingguy.mysql - mariadb
+      include_role:
+        name: geerlingguy.mysql
+      vars_files:
+          - vars.yml
+      when: enable_mysql
+
+    - name: install greendayonfire.mongodb
+      include_role:
+        name: greendayonfire.mongodb
+      vars_files:
+          - vars.yml
+      when: enable_mongodb
 
     - name: install DavidWittman.redis
       include_role:

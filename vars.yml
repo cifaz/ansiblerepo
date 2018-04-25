@@ -6,13 +6,13 @@ enable_push_ssh_key: true
 enable_nodejs: true
 enable_tomcat: true
 enable_oracle_java: true
-enable_dnsmasq: true
+enable_dnsmasq: false
 enable_openvpn: false
-enable_jenkins: true
-enable_nginx: true
-enable_zentao: true
+enable_jenkins: false
+enable_nginx: false
+enable_zentao: false
 enable_xwiki: false
-enable_jumpserver: true
+enable_jumpserver: false
 
 enable_nexus3: true
 enable_gitlab: true
