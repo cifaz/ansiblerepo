@@ -148,7 +148,7 @@ chmod -R u+x ./*.sh && \
 - 配置安装脚本 前缀为install-zone的为各服务器脚本, 此为示例, 可修改为合适自己的脚本 
   
 - 安装
-  # 约分, 需要安装yum repo
+  # 约55分, 需要安装yum repo (mysql,19 + mongodb,31 + redis/kafka,5)
   ansible-playbook install-zone-db.yml
   ansible-playbook install-zone-zookeepr.yml
   ansible-playbook install-zone-ops.yml
