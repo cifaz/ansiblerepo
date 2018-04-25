@@ -150,8 +150,11 @@ chmod -R u+x ./*.sh && \
 - 安装
   # 约55分, 需要安装yum repo (mysql,19 + mongodb,31 + redis/kafka,5)
   ansible-playbook install-zone-db.yml
+  # 约8分钟
   ansible-playbook install-zone-zookeepr.yml
+  # 
   ansible-playbook install-zone-ops.yml
+  # 约4分钟， 不含JDK安装时间
   ansible-playbook install-zone-web.yml
   
 ```
