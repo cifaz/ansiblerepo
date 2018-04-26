@@ -3,7 +3,7 @@
 - hosts:
     - web
     - db
-    - localhost
+    - local
   vars_files:
     - vars.yml
   tasks:
