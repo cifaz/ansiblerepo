@@ -171,6 +171,8 @@ ansible-galaxy install cifaz.ops-env -f
 - zookeeper启动报错, Error: Could not find or load main class org.apache.zookeeper.server.quorum.QuorumPeerMain
   是安装包下载不完整
 
+- zookeeper下载时, 如果某个节点报错, 请直接重新运行安装命令, 会重新下载即可, 原因为下载时错误
+- zookeeper本地安装时启动不了时, 可能是数据目录和日志目录权限不对, 正常应该为zookeeper:zookeeper
 
 License
 -------

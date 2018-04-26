@@ -19,10 +19,10 @@ enable_gitlab: true
 enable_gitlab_zh: true
 enable_zookeeper: true
 
-enable_mysql: false
+enable_mysql: true
 enable_mongodb: false
-enable_redis: true
-enable_kafka: true
+enable_redis: false
+enable_kafka: false
 
 # 推送ssh-key到各机器, ssh_keys_dir别改变
 ssh_keys_dir: /root/.ssh/
