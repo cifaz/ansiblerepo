@@ -196,6 +196,7 @@ mysql_root_password: root
 mysql_port: "3306"
 mysql_bind_address: '0.0.0.0'
 mysql_datadir: /app/data/mysql
+mysql_socket: /app/data/mysql/mysql.sock
 mysql_users:
   - name: admin
     host: "%"
