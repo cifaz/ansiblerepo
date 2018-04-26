@@ -20,7 +20,7 @@ enable_gitlab_zh: true
 enable_zookeeper: true
 
 enable_mysql: true
-enable_mongodb: false
+enable_mongodb: true
 enable_redis: false
 enable_kafka: false
 
