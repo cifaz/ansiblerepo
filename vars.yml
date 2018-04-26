@@ -214,9 +214,9 @@ mysql_packages:
       - MySQL-python
       - perl-DBD-MySQL
 mysql_daemon: mariadb
-mysql_log_error: /var/log/mariadb/mariadb.log
+#mysql_log_error: /var/log/mariadb/mariadb.log
 mysql_syslog_tag: mariadb
-mysql_pid_file: /var/run/mariadb/mariadb.pid
+#mysql_pid_file: /var/run/mariadb/mariadb.pid
 #mysql_daemon: mysqld
 #mysql_packages: ['mysql-server']
 #mysql_log_error: /var/log/mysqld.err
