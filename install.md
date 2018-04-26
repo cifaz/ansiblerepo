@@ -168,6 +168,9 @@ chmod -R u+x ./*.sh && \
 加 -f 参数重新强制下载
 ansible-galaxy install cifaz.ops-env -f
 ```
+- zookeeper启动报错, Error: Could not find or load main class org.apache.zookeeper.server.quorum.QuorumPeerMain
+  是安装包下载不完整
+
 
 License
 -------
