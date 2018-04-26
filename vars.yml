@@ -20,7 +20,7 @@ enable_gitlab_zh: true
 enable_zookeeper: true
 
 enable_mysql: true
-enable_mongodb: true
+enable_mongodb: false
 enable_redis: false
 enable_kafka: false
 
@@ -190,18 +190,12 @@ kafka_config_contents:
   zookeeper.connect: "localhost:2181"
 
 # mysql
-#mysql_user_home: /root
-#mysql_user_name: root
-#mysql_user_password: root
-#mysql_root_home: /root
+mysql_root_home: /root
 mysql_root_username: root
 mysql_root_password: root
-# MySQL connection settings.
 mysql_port: "3306"
 mysql_bind_address: '0.0.0.0'
-#mysql_skip_name_resolve: no
-#mysql_datadir: /app/data/mysql
-#mysql_sql_mode: ''
+mysql_datadir: /app/data/mysql
 mysql_users:
   - name: admin
     host: "%"
@@ -210,13 +204,8 @@ mysql_users:
 mysql_packages:
       - MariaDB
       - MariaDB-server
-#      - MariaDB-libs
       - MySQL-python
       - perl-DBD-MySQL
-mysql_daemon: mariadb
-#mysql_log_error: /var/log/mariadb/mariadb.log
-mysql_syslog_tag: mariadb
-#mysql_pid_file: /var/run/mariadb/mariadb.pid
 #mysql_daemon: mysqld
 #mysql_packages: ['mysql-server']
 #mysql_log_error: /var/log/mysqld.err
