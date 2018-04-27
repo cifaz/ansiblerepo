@@ -18,20 +18,27 @@
         src: "{{ mysql_repo }}"
         dest: /etc/yum.repos.d/
 
+    - name: useradd mysql
+      useradd:
+        name: mysql
+        group: mysql
+        comment: present
+        state: mysql
+
     # 由于geerlingguy.mysql touch时报错, 先行创建
     - name: mkdir /var/log/mariadb/
       file:
         path: /var/log/mariadb/
         state: directory
-#        owner: mysql
-#        group: mysql
+        owner: mysql
+        group: mysql
 
     - name: mkdir /var/run/mariadb/
       file:
         path: /var/run/mariadb/
         state: directory
-#        owner: mysql
-#        group: mysql
+        owner: mysql
+        group: mysql
 
     - name: install geerlingguy.mysql - mariadb
       include_role:
