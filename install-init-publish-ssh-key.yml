@@ -28,3 +28,16 @@
      - import_tasks: install-centos-aliyum.yml
      # 统一创建目录 安装依赖 更换中国时间
      - import_tasks: install-centos-init.yml
+
+     - name: stop firewalld
+       service:
+         name: firewalld
+        enabled: no
+        state: stopped
+
+     - name: stop selinux
+       shell: setenforce 0
+
+     - name: modify disabled selinux
+       selinux:
+         state: disabled
