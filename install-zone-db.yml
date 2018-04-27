@@ -3,8 +3,6 @@
     - db
   vars_files:
     - vars.yml
-#  remote_user: root
-  become: yes
   tasks:
     - name: install db server
       debug:
