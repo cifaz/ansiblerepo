@@ -59,9 +59,9 @@
       when: enable_xwiki
 
 #    装jumpserver前, 装好redis和mysql, 最好先运行dbserver
-#    - name: 8.install cifaz.jumpserver
-#      include_role:
-#        name: cifaz.jumpserver
-#      vars_files:
-#          - vars.yml
-#      when: enable_jumpserver
+    - name: 8.install cifaz.jumpserver
+      include_role:
+        name: cifaz.jumpserver
+      vars_files:
+        - vars.yml
+      when: enable_jumpserver
