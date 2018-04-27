@@ -22,8 +22,8 @@
       user:
         name: mysql
         group: mysql
-        comment: present
-        state: mysql
+        comment: mysql
+        state: present
 
     # 由于geerlingguy.mysql touch时报错, 先行创建
     - name: mkdir /var/log/mariadb/
