@@ -20,9 +20,9 @@ enable_gitlab_zh: true
 enable_zookeeper: true
 
 enable_mysql: true
-enable_mongodb: false
-enable_redis: false
-enable_kafka: false
+enable_mongodb: true
+enable_redis: true
+enable_kafka: true
 
 # 推送ssh-key到各机器, ssh_keys_dir别改变
 ssh_keys_dir: /root/.ssh/
@@ -195,8 +195,8 @@ mysql_root_username: root
 mysql_root_password: root
 mysql_port: "3306"
 mysql_bind_address: '0.0.0.0'
-mysql_datadir: /app/data/mysql
-mysql_socket: /app/data/mysql/mysql.sock
+#mysql_datadir: /app/data/mysql
+#mysql_socket: /app/data/mysql/mysql.sock
 mysql_users:
   - name: admin
     host: "%"
