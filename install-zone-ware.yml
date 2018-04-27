@@ -8,13 +8,6 @@
       debug:
         msg: "install ware"
 
-    - name: install savoirfairelinux.nexus3-oss
-      include_role:
-        name: savoirfairelinux.nexus3-oss
-      vars_files:
-          - vars.yml
-      when: enable_nexus3
-
     - name: install geerlingguy.gitlab
       include_role:
         name: geerlingguy.gitlab
@@ -28,3 +21,10 @@
       vars_files:
           - vars.yml
       when: enable_gitlab_zh
+
+    - name: install savoirfairelinux.nexus3-oss
+      include_role:
+        name: savoirfairelinux.nexus3-oss
+      vars_files:
+          - vars.yml
+      when: enable_nexus3
