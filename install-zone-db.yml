@@ -19,7 +19,7 @@
         dest: /etc/yum.repos.d/
 
     - name: useradd mysql
-      useradd:
+      user:
         name: mysql
         group: mysql
         comment: present
