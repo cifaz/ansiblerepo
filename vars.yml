@@ -6,13 +6,13 @@ enable_push_ssh_key: true
 enable_nodejs: true
 enable_tomcat: true
 enable_oracle_java: true
-enable_dnsmasq: false
-enable_openvpn: false
-enable_jenkins: false
-enable_nginx: false
-enable_zentao: false
+enable_dnsmasq: true
+enable_openvpn: true
+enable_jenkins: true
+enable_nginx: true
+enable_zentao: true
 enable_xwiki: false
-enable_jumpserver: false
+enable_jumpserver: true
 
 enable_nexus3: true
 enable_gitlab: true
@@ -125,12 +125,12 @@ openvpn_server_netmask: 255.255.255.0
 
 # jumpserver
 # 如果为true, 则会在本地安装, 如果不是则使用远程, 此时不在本地或远程安装数据库
-db_install_local: true
-db_host: 192.168.19.254
+db_install_local: false
+db_host: 192.168.19.253
 db_port: 3306
 db_name: jumpserver
-db_username: jumpserver
-db_passwd: 123456
+db_username: admin
+db_passwd: admin2018
 # webserver
 http_bind_host: 0.0.0.0
 http_listen_port: 8080

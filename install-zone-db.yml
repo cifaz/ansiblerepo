@@ -52,13 +52,6 @@
           - vars.yml
       when: enable_mysql
 
-    - name: install greendayonfire.mongodb
-      include_role:
-        name: greendayonfire.mongodb
-      vars_files:
-          - vars.yml
-      when: enable_mongodb
-
     - name: install DavidWittman.redis
       include_role:
         name: DavidWittman.redis
@@ -72,3 +65,10 @@
       vars_files:
           - vars.yml
       when: enable_kafka
+
+    - name: install greendayonfire.mongodb
+      include_role:
+        name: greendayonfire.mongodb
+      vars_files:
+          - vars.yml
+      when: enable_mongodb
