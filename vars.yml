@@ -7,7 +7,7 @@ enable_nodejs: true
 enable_tomcat: true
 enable_oracle_java: true
 enable_dnsmasq: true
-enable_openvpn: true
+enable_openvpn: false
 enable_jenkins: true
 enable_nginx: true
 enable_zentao: true
@@ -110,6 +110,7 @@ nexus_anonymous_access: false
 
 
 # jenkins
+jenkins_hostname: 192.168.19.254
 jenkins_home: /app/data/jenkins
 jenkins_http_port: 9001
 jenkins_admin_username: admin

@@ -39,6 +39,7 @@
     - name: 5.install geerlingguy.nginx
       include_role:
         name: geerlingguy.nginx
+      become: true
       vars_files:
           - vars.yml
       when: enable_nginx
