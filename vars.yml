@@ -132,6 +132,7 @@ db_port: 3306
 db_name: jumpserver
 db_username: admin
 db_passwd: admin2018
+# 数据库如果不在本地安装, 需要认真填写远程信息
 login_host: 192.168.19.253
 login_user: admin
 login_password: admin2018
