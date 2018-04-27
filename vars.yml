@@ -20,7 +20,7 @@ enable_gitlab_zh: true
 enable_zookeeper: true
 
 enable_mysql: true
-enable_mongodb: true
+enable_mongodb: false
 enable_redis: true
 enable_kafka: true
 
@@ -197,6 +197,7 @@ mysql_port: "3306"
 mysql_bind_address: '0.0.0.0'
 #mysql_datadir: /app/data/mysql
 #mysql_socket: /app/data/mysql/mysql.sock
+mysql_lower_case_table_names: "1"
 mysql_users:
   - name: admin
     host: "%"
@@ -240,7 +241,7 @@ zookeeper_hosts:
 # mongodb
 mongodb_version: "3.6"
 mongodb_net_bindip: 192.168.19.253
-mongodb_net_maxconns: 65536
+mongodb_net_maxconns: 35536
 mongodb_net_port: 27017
 mongodb_storage_dbpath: /app/data/mongodb
 
