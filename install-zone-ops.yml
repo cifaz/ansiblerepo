@@ -22,9 +22,9 @@
         - vars.yml
       when: enable_dnsmasq
 
-    - name: 3.install sansible.openvpn
+    - name: 3.install kyl191.openvpn
       include_role:
-        name: sansible.openvpn
+        name: kyl191.openvpn
       vars_files:
         - vars.yml
       when: enable_openvpn

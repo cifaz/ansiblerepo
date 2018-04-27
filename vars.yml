@@ -132,6 +132,10 @@ db_port: 3306
 db_name: jumpserver
 db_username: admin
 db_passwd: admin2018
+login_host: 192.168.19.253
+login_user: admin
+login_password: admin2018
+login_port: 3306
 # webserver
 http_bind_host: 0.0.0.0
 http_listen_port: 8080

@@ -23,6 +23,7 @@
     - gcc
     - automake
     - zlib-devel
+    - MySQL-python
     - openssl-devel
     - epel-release
     - lrzsz

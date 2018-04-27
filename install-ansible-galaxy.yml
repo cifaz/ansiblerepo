@@ -12,7 +12,7 @@
         - wtanaka.apache-kafka
         - srsp.oracle-java
         - bertvv.dnsmasq
-        - sansible.openvpn
+        - kyl191.openvpn
         - geerlingguy.jenkins
         - geerlingguy.nginx
         - cifaz.zentao
