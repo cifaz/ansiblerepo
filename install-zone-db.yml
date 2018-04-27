@@ -18,11 +18,16 @@
         src: "{{ mysql_repo }}"
         dest: /etc/yum.repos.d/
 
-    - name: useradd mysql
+    - name: add group mysql
+      group:
+        name: mysql
+        state: present
+
+    - name: add user mysql
       user:
         name: mysql
-        group: mysql
-        comment: mysql
+        groups: mysql
+        comment: mysql - mariadb
         state: present
 
     # 由于geerlingguy.mysql touch时报错, 先行创建
