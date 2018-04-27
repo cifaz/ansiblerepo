@@ -32,8 +32,8 @@
      - name: stop firewalld
        service:
          name: firewalld
-        enabled: no
-        state: stopped
+         enabled: no
+         state: stopped
 
      - name: stop selinux
        shell: setenforce 0
