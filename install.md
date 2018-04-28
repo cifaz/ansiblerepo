@@ -7,10 +7,10 @@ cifaz.ansible-ops-env
 快速建立起自己的一套基本的自动化环境  
 21个 playbook 对应19个Role
 
-* 机器初始化成功
+* 运维机器初始化成功
 * 下载库
 ````
-# 约30-50秒
+# 约2分钟
 mkdir -p /app/down/ && \
 cd /app/down/ && \
 yum install -y git
@@ -18,30 +18,19 @@ yum install -y git
 # 约1分钟
 git clone https://github.com/cifaz/ansiblerepo.git
   
-# 照如下, 初始化yum环境, 约7分钟, 会更新yum包
+# 照如下, 初始化yum环境, 约4分钟, 会更新yum包
 cd ansiblerepo && \
 chmod -R u+x ./*.sh && \
 ./install-centos-aliyum.sh
 
 # 初始化, 约4分钟
+1.可以初始化基本目录,   
+2.初始化常用依赖组件/工具(如ansible/jumpserver的依赖)   
+3.更换时区和设置中国时间, 更新yum缓存  
+4.**其它自己按需设定**
 ./install-centos-ops-init.sh
 
 ````
-
-### 你在使用本工具前可以先使用如下工具初始化你的基本环境
- - [阿里云YUM安装脚本](yumforali.sh) 可以快速将你的服务器切换为阿里云YUM
-    ```
-       ./install-centos-aliyum.yml.sh
-    ```
- - [环境初始化EPEL](bak/centos-env-init.sh)   
-    1.可以初始化基本目录,   
-    2.初始化常用依赖组件/工具(如ansible/jumpserver的依赖)   
-    3.更换时区和设置中国时间, 更新yum缓存  
-    4.**其它自己按需设定**
-    ```
-      # 初始化
-      ./install-centos-ops-init.sh
-    ```
 
 ### 初始化ansible主机 目前仅限于centos7
  - 正常情况为localhost, 本机
@@ -65,7 +54,7 @@ chmod -R u+x ./*.sh && \
  host_key_checking = False
  callback_whitelist = profile_tasks
  
- 初始化完毕, cifaz库, 安装时会把常用库都安装进来
+ 在playbooks下执行, 不在这里执行, 跳过此步, 初始化完毕, cifaz库, 安装时会把常用库都安装进来
  cd /app/data/ansible/playbooks && \
  git clone https://github.com/cifaz/ansiblerepo.git
    
@@ -77,7 +66,7 @@ chmod -R u+x ./*.sh && \
   
 ### 测试环境安装部署
 ```
-- 准备playbook
+- 在playbooks下执行, 不在这里执行, 跳过此步,  准备playbook , 跳过直接 在下载目录执行
   cp -rf ansiblerepo/*.sh ./ && \
   cp -rf ansiblerepo/conf/ ./ && \
   cp -rf ansiblerepo/*.yml ./ 
@@ -112,15 +101,7 @@ chmod -R u+x ./*.sh && \
   vi /app/data/ansible/hosts/db
   [db]
   192.168.19.253
-  
-- ops机安装galaxy, 约5分钟, 下载所有依赖项, 有些慢, 主要看网速了
-  ansible-playbook install-ansible-galaxy.yml
-  
-- 初始化分发ssh-key, 不重复发放
-  ansible-playbook install-init-generate-ssh-key.yml
-  # 约6分钟, 注:此步时, 需要所有机器密码一致 
-  ansible-playbook install-init-publish-ssh-key.yml -k
-  
+    
 - 分环境(请自行划分)
   运维机一台, jdk, jumpserver, dnsmasq, openvpn, jenkins, nginx, zentao, xwiki
   仓库服务, gitlab, nexus
@@ -135,6 +116,14 @@ chmod -R u+x ./*.sh && \
   zookeeper: db-server web-server localhost
   
   这些server预置对应哪些服务
+  
+- ops机安装galaxy, 约5分钟, 下载所有依赖项, 有些慢, 主要看网速了
+  ansible-playbook install-ansible-galaxy.yml
+  
+- 初始化分发ssh-key, 不重复发放
+  ansible-playbook install-init-generate-ssh-key.yml
+  # 约12分钟, 注:此步时, 需要所有机器密码一致 
+  ansible-playbook install-init-publish-ssh-key.yml -k
   
 - 运维机
   常规安装, 
@@ -156,6 +145,8 @@ chmod -R u+x ./*.sh && \
   ansible-playbook install-zone-ops.yml
   # 约4分钟， 不含JDK安装时间
   ansible-playbook install-zone-web.yml
+  ansible-playbook install-zone-ware.yml
+  ansible-playbook install-zone-yum-ignore.yml
   
 ```
 
