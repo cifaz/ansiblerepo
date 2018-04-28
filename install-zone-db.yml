@@ -52,11 +52,19 @@
           - vars.yml
       when: enable_mysql
 
+    - name: MariaDB
+      shell: "echo exclude=MariaDB* >> /etc/yum.conf && uniq /etc/yum.conf"
+      when: enable_mysql
+
     - name: install DavidWittman.redis
       include_role:
         name: DavidWittman.redis
       vars_files:
           - vars.yml
+      when: enable_redis
+
+    - name: redis
+      shell: "echo exclude=redis* >> /etc/yum.conf && uniq /etc/yum.conf"
       when: enable_redis
 
     - name: install wtanaka.apache-kafka
@@ -66,9 +74,17 @@
           - vars.yml
       when: enable_kafka
 
+    - name: kafka
+      shell: "echo exclude=kafka* >> /etc/yum.conf && uniq /etc/yum.conf"
+      when: enable_kafka
+
     - name: install greendayonfire.mongodb
       include_role:
         name: greendayonfire.mongodb
       vars_files:
           - vars.yml
+      when: enable_mongodb
+
+    - name: mongodb
+      shell: "echo exclude=mongodb* >> /etc/yum.conf && uniq /etc/yum.conf"
       when: enable_mongodb

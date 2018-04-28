@@ -143,8 +143,9 @@ chmod -R u+x ./*.sh && \
   ansible-playbook install-zone-db.yml
   # 约40分钟, jumpserver依赖redis, mysql
   ansible-playbook install-zone-ops.yml
-  # 约4分钟， 不含JDK安装时间
+  # 约5分钟， 不含JDK安装时间, jdk在安装zookeeper时已经安装了
   ansible-playbook install-zone-web.yml
+  # 约分钟
   ansible-playbook install-zone-ware.yml
   ansible-playbook install-zone-yum-ignore.yml
   

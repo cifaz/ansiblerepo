@@ -42,12 +42,20 @@
         - vars.yml
       when: enable_jenkins
 
+    - name: jenkins
+      shell: "echo exclude=jenkins* >> /etc/yum.conf && uniq /etc/yum.conf"
+      when: enable_jenkins
+
     - name: 5.install geerlingguy.nginx
       include_role:
         name: geerlingguy.nginx
       become: true
       vars_files:
         - vars.yml
+      when: enable_nginx
+
+    - name: nginx
+      shell: "echo exclude=nginx* >> /etc/yum.conf && uniq /etc/yum.conf"
       when: enable_nginx
 
     - name: 6.install cifaz.zentao
@@ -71,3 +79,11 @@
       vars_files:
         - vars.yml
       when: enable_jumpserver
+
+    - name: dnsmasq
+      shell: "echo exclude=java* >> /etc/yum.conf && uniq /etc/yum.conf"
+      when: enable_dnsmasq
+
+
+
+

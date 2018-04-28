@@ -15,6 +15,10 @@
           - vars.yml
       when: enable_gitlab
 
+    - name: gitlab
+      shell: "echo exclude=gitlab* >> /etc/yum.conf && uniq /etc/yum.conf"
+      when: enable_gitlab
+
     - name: install cifaz.gitlab-zh
       include_role:
         name: cifaz.gitlab-zh
@@ -27,4 +31,8 @@
         name: savoirfairelinux.nexus3-oss
       vars_files:
           - vars.yml
+      when: enable_nexus3
+
+    - name: nexus
+      shell: "echo exclude=nexus* >> /etc/yum.conf && uniq /etc/yum.conf"
       when: enable_nexus3
