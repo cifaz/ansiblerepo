@@ -58,8 +58,8 @@ nginx_conf:
     ip_and_port: 192.168.19.252:9002
 
 dns_conf:
-  # 域名,请在前面加. 解析此域名所有的
-  - host_name: .czz.com
+  # 域名, 模板解析的时候默认会在前面加. 解析此域名所有的
+  - host_name: czz.com
     # 目标机器IP, 只能到IP了, 一般解析到nginx再自行转发, 这里演示的是统一转发到上面的nginx中
     target_server_ip: 192.168.19.254
 
