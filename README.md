@@ -7,7 +7,7 @@ ansible-repo
 快速建立起自己的一套基本的自动化环境  
 
 ###基本流程
--------------------
+
 - 1.修改配置, 全局的适应所有的安装服务
 - 2.初始化运维机器
 - 3.安装ansible
@@ -16,7 +16,6 @@ ansible-repo
 
 
 ###注: 服务脚本有一定顺序, 主要是依赖
-------------------
 - install-zone-db中的kafka依赖于zookeeper中的zookeeper
 - install-zone-ops中的jumpserver依赖于install-zone-db的mariadb及redis
 - 先进行vars.yml配置, 以下所有代码直接复制粘贴运行即可
