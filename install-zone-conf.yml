@@ -6,14 +6,13 @@
   tasks:
     - name: conf nginx
       vars:
-        server_name: zentao.ccz.com
-        log_evn: test
-        upstream_name: cczzentao
-        ip_and_port: 127.0.0.1:8080
+        server_name: "{{item.server_name}}"
+        log_evn: "{{item.log_evn}}"
+        upstream_name: "{{item.upstream_name}}"
+        ip_and_port: "{{item.ip_and_port}}"
       template:
         src: conf/nginx.conf.j2
         dest: "/etc/nginx/conf.d/{{ item.server_name }}.conf"
-#        attributes: "{{ item }}"
 #      debug: "msg={{ item }}"
       loop: "{{ nginx_conf }}"
 
