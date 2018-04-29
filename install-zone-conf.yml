@@ -7,7 +7,7 @@
     - name: conf nginx
       copy:
         src: conf/nginx.conf.j2
-        dest: "/etc/nginx/conf.d/{{ server_name }}.conf"
+        dest: "/etc/nginx/conf.d/{{ item.server_name }}.conf"
       loop: "{{ nginx_conf }}"
 
 
