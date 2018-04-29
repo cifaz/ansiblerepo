@@ -27,7 +27,7 @@
     - name: stop dns and nginx
       service:
         name: "{{ item }}"
-        state: stoped
+        state: stopped
       loop:
         - nginx
         - dnsmasq
