@@ -13,7 +13,15 @@
       template:
         src: conf/nginx.conf.j2
         dest: "/etc/nginx/conf.d/{{ item.server_name }}.conf"
-#      debug: "msg={{ item }}"
       loop: "{{ nginx_conf }}"
+
+    - name: conf dnsmasq
+      vars:
+        host_name: "{{item.host_name}}"
+        target_server_ip: "{{item.target_server_ip}}"
+      template:
+        src: conf/dnsmasq.conf.j2
+        dest: "/etc/dnsmasq.d/{{ item.host_name }}.conf"
+      loop: "{{ dns_conf }}"
 
 

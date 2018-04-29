@@ -45,6 +45,13 @@ nginx_conf:
     upstream_name: cczzentao
     ip_and_port: 127.0.0.1:8080
 
+dns_conf:
+  # 域名,请在前面加. 解析此域名所有的
+  - host_name: .czz.com
+    # 目标机器IP, 只能到IP了, 一般解析到nginx再自行转发, 这里演示的是统一转发到上面的nginx中
+    target_server_ip: 192.168.19.254
+
+
 # 推送ssh-key到各机器, ssh_keys_dir别改变
 ssh_keys_dir: /root/.ssh/
 ssh_keys_priv_name: id_rsa
