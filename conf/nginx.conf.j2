@@ -9,8 +9,8 @@ server {
     server_name {{ server_name }};
     client_max_body_size 32m;
 
-    error_log  /var/log/nginx/{{ log_evn | default(test) }}-{{ server_name }}.error.log;
-    access_log /var/log/nginx/{{ log_evn | default(test) }}-{{ server_name }}.log main;
+    error_log  /var/log/nginx/{{ log_evn}}-{{ server_name }}.error.log;
+    access_log /var/log/nginx/{{ log_evn}}-{{ server_name }}.log main;
 
     location / {
         proxy_next_upstream error invalid_header http_500 http_502 http_503 http_504;
