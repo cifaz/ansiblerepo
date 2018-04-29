@@ -146,7 +146,7 @@ ansible-repo
   ansible-playbook install-zone-web.yml
   # 约40分钟, nexus提示密码修改失败, 可不管用默认密码admin123进入
   ansible-playbook install-zone-ware.yml
-  # nginx, dnamasq
+  # 安装nginx, dnamasq配置文件, 请在vars.yml中配置, 自动生成基本配置
   ansible-playbook install-zone-conf.yml
   
 ```

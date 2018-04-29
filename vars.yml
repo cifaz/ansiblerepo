@@ -45,6 +45,18 @@ nginx_conf:
     upstream_name: cczzentao
     ip_and_port: 127.0.0.1:8080
 
+    # gitlab
+  - server_name: git.ccz.com
+    log_evn: test
+    upstream_name: cczgit
+    ip_and_port: 127.0.0.1:9000
+
+    # nexus maven
+  - server_name: maven.ccz.com
+    log_evn: test
+    upstream_name: cczmaven
+    ip_and_port: 127.0.0.1:9002
+
 dns_conf:
   # 域名,请在前面加. 解析此域名所有的
   - host_name: .czz.com
