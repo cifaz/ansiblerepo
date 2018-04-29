@@ -49,13 +49,13 @@ nginx_conf:
   - server_name: git.ccz.com
     log_evn: test
     upstream_name: cczgit
-    ip_and_port: 127.0.0.1:9000
+    ip_and_port: 192.168.19.252:9000
 
     # nexus maven
   - server_name: maven.ccz.com
     log_evn: test
     upstream_name: cczmaven
-    ip_and_port: 127.0.0.1:9002
+    ip_and_port: 192.168.19.252:9002
 
 dns_conf:
   # 域名,请在前面加. 解析此域名所有的
