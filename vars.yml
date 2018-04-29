@@ -24,9 +24,28 @@ enable_mongodb: false
 enable_redis: true
 enable_kafka: true
 
+# nginx配置
+
+# dnsmasq配置
+nginx_conf:
+    # 域名, 你想要的域名, 如ccz.com
+    # jenkins
+  - server_name: jenkins.ccz.com
+    # 日志环境prod, test
+    log_evn: test
+    # 流名称, 必须配置哦, 并且nginx中不能重复
+    upstream_name: cczjenkins
+    # 需要转发的机器IP及域名, 现在简配, 只支持一台
+    ip_and_port: 127.0.0.1:9001
+
+    # 禅道
+  - server_name: zentao.ccz.com
+    log_evn: test
+    upstream_name: cczzentao
+    ip_and_port: 127.0.0.1:8080
+
 # 推送ssh-key到各机器, ssh_keys_dir别改变
 ssh_keys_dir: /root/.ssh/
-#ssh_keys_dir: /app/data/ssh-keys
 ssh_keys_priv_name: id_rsa
 ssh_keys_pub_name: id_rsa.pub
 

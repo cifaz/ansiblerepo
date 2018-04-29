@@ -1,0 +1,13 @@
+# 配置文件处理
+- hosts:
+    - localhost
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: conf nginx
+      copy:
+        src: conf/nginx.conf.j2
+        dest: "/etc/nginx/conf.d/{{ server_name }}.conf"
+      loop: {{ nginx_conf }}
+
+
