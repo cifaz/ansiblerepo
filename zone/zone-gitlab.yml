@@ -1,16 +1,16 @@
 ---
 - hosts: localhost
   vars_files:
-    - vars.yml
+    - ../vars.yml
   roles:
     - role: geerlingguy.gitlab
       vars_files:
-        - vars.yml
+        - ../vars.yml
       when: enable_gitlab
 
     - role: cifaz.gitlab-zh
       vars_files:
-        - vars.yml
+        - ../vars.yml
       when: enable_gitlab_zh
 
 

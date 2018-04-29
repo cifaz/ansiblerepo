@@ -1,10 +1,10 @@
 ---
 - hosts: web
   vars_files:
-    - vars.yml
+    - ../vars.yml
   roles:
     - role: zaxos.tomcat-ansible-role
       vars_files:
-        - vars.yml
+        - ../vars.yml
       when: enable_tomcat
 

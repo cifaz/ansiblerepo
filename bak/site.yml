@@ -1,7 +1,0 @@
-- hosts: local
-  remote_user: root
-  roles:
-    - {role: jenkins, tag: "jenkins", jenkins_state: started
-       ,jenkins_enabled: yes, jenkins_port: 9001, jenkins_listen_address: 192.168.19.254
-      , jenkins_args: "--sessionTimeout=1440", become: yes}
-    - {role: "geerlingguy.mysql", tag: "dbmysql", mysql_datadir: "/app/data/mysql/"}

@@ -1,84 +1,170 @@
-### ansible工作常用库
-- - -
+ansible-repo
+========================
 
-#### ansible安装
-##### centos7
+通用环境建立库  
+本工具的目的是使用ansible尽可能快的时间建立一套测试/生产环境  
+因此本工具是一套集成工具, 使用了一些约定方法, 可自行修改
+快速建立起自己的一套基本的自动化环境  
 
-[更换阿里云](https://www.5yun.org/13450.html)
+###基本流程
+-------------------
+- 1.修改配置, 全局的适应所有的安装服务
+- 2.初始化运维机器
+- 3.安装ansible
+- 4.初始化其它所有机器(包含运维机器)
+- 5.安装服务脚本, install-zone-*开头的所有服务
 
-目标: 最少的步骤搭建一个自动化的内部测试环境
 
-```
+###注: 服务脚本有一定顺序, 主要是依赖
+------------------
+- install-zone-db中的kafka依赖于zookeeper中的zookeeper
+- install-zone-ops中的jumpserver依赖于install-zone-db的mariadb及redis
+- 先进行vars.yml配置, 以下所有代码直接复制粘贴运行即可
+- 所有机器密码一致, 否则服务可能要分开执行
 
-======================================
-**准备工作 
+### 1.修改变更文件, 以适应您的环境
+[详见vars.yml](vars.yml)
 
-准备yum环境 [更换阿里云脚本](yumforali.sh)
-yum install -y wget
-cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 
-wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo 
-yum clean all && yum makecache
-yum update
+### 2.初始化运维机器
+````
+- 安装服务下载依赖, 约2分钟 
+  mkdir -p /app/down/ && \
+  cd /app/down/ && \
+  yum install -y git
+    
+- 下载操作库, 约1分钟
+  git clone https://github.com/cifaz/ansiblerepo.git
   
-======================================
-**准备ansible环境
-下载并建立目录
-mkdir -p /app/data/ansible/{hosts, playbook}/
+- 更新yum环境为阿里云, 会更新yum缓存, 约4分钟
+  cd ansiblerepo && \
+  chmod -R u+x ./*.sh && \
+  ./install-centos-aliyum.sh
+  
+- 运维机器常用软件安装, 约4分钟
+  1.初始化基本目录(/app/)   
+  2.初始化常用依赖组件/工具(如ansible/jumpserver等依赖)   
+  3.更换时区和设置中国时间, 更新yum缓存  
+  ./install-centos-ops-init.sh
+
+````
+
+### 3.安装ansible 目前仅限于centos7
+```
+- 安装ansible, 安装完毕检查版本号, 约2分钟
+  yum install -y ansible && ansible --version
    
-git clone https://github.com/cifaz/ansiblerepo.git
-复制文件到books中, 准备执行
-\cp -rf ./ansiblerepo/* ./
-  
-安装ansible
-yum install -y ansible
-  
-测试过程中, git更新并执行
-cd ansiblerepo && git pull && \cp -rf ./*.yml ../ && cd ../
-  
-======================================
-**分发密钥 - 详见publish-ssh-key.yml
-  
-======================================
-**目录规划及安装基本依赖
-ansible-playbook all init-centos.yml
-  
-======================================
-**安装所有常用ansible组件
-ansible-ops-env 中使用dependencies进行依赖, 在install时会自动安装
+- ansible配置基本目录
+  mkdir -p /app/data/ansible/{hosts,playbooks}
    
-未做清单
-gitlab等安装后不需要更新的 加入到yum.conf中
-
+- 加入ansible配置
+  vi /etc/ansible/ansible.cfg
+ 
+- 加下如下配置 [defaults]节点下, 复制进去即可
+  inventory=/app/data/ansible/hosts/
+  roles_path=/app/data/ansible/playbooks/roles:/etc/ansible/roles:/usr/share/ansible/roles
+  host_key_checking = False
+  callback_whitelist = profile_tasks
+  
+- 建立机器配置
+  建议同类机器建立, 如
+  web: web机器
+  db: 数据库, 主数据库
+  db2: 从数据库, 备份数据
+  ops: 运维机器, 一般指本机, 也可以用local
+  public: 公共组件机器
+  各种机器类型又可以再进行细分
+   
+  touch /app/data/ansible/hosts/web && \ 
+  touch /app/data/ansible/hosts/db && \
+  touch /app/data/ansible/hosts/local && \
+  touch /app/data/ansible/hosts/public 
+  
+  例:
+  共3台机器
+  192.168.19.254 / 253 / 252
+  ops机, localhost不分配
+  db: 253
+  web: 252
+  
+  // web
+  vi /app/data/ansible/hosts/web
+  [web]
+  192.168.19.252
+  
+  // db 
+  vi /app/data/ansible/hosts/db
+  [db]
+  192.168.19.253
+  
+  // local 
+  vi /app/data/ansible/hosts/local
+  [db]
+  192.168.19.254
+  
+- 环境划分建议
+  运维机一台, jdk, jumpserver, dnsmasq, openvpn, jenkins, nginx, zentao, xwiki
+  仓库服务, gitlab, nexus
+  WEB服务二台, nodejs, jdk, tomcat, zookeeper
+  数据库一台, kafka, redis, mysql, mongodb
+  基础服务, 业务服务, 暂无, 和WEB服务有点像, 如CAS, dubbo监控, 部署服务等
 
 ```
 
-  
-  安装时长  
-  gitlab 6.22 15.5
-  
-
-##### 待整理
+### 4.初始化其它所有机器(包含运维机器)
 ```
-  其它运维工具
-  以应用为中心的全生命周期管理平台——Portal
-  从需求--开发--测试--交付—运维的一个闭环
-  zabbix 监控 
-  ansible-galaxy install dj-wasabi.zabbix-agent 
-  ansible-galaxy install dj-wasabi.zabbix-server
-  ansible-galaxy install dj-wasabi.zabbix-proxy
   
-  rabbit
-  elasticsearch
-  Gerrit
-  Docker
-  codis
-  Kubernetes
-  Vagrant
-  Logstash
+- 安装galaxy角色, 约5分钟, 下载所有依赖项, 有些慢, 主要看网速了
+   ansible-playbook install-ansible-galaxy.yml
+  
+- 初始化ssh-key, 不重复发放
+   ansible-playbook install-init-generate-ssh-key.yml
+  
+- 分发到其它所有机器, 注:此步时, 需要所有机器密码一致, 约12分钟
+   ansible-playbook install-init-publish-ssh-key.yml -k
+  
+- 运维机
+  常规安装, 
+  如下配置需要自己处理
+  nginx, /etc/nginx/nginx.conf 及 /etc/nginx/conf.d/下的文件需要建立, 模板
+  dnsmasq, /etc/dnsmasq.d/下建立自己的域名拦截解析, 模板
+  
 ```
 
-ansible可以便捷安装jumpserver啦, 后续持续更新, 支持更多系统, 目前支持centos
-playbook: ansible-galaxy install cifaz.jumpserver
-git地址: https://github.com/cifaz/ansible-jumpserver
-一键安装更轻松, 其它ansible集合库, https://github.com/cifaz
+### 5.安装服务脚本, install-zone-*开头的所有服务
+```
+- 配置 var.yml 修改为自己合适的配置, 
+  其它配置如路径, 规划为通用路径, 可不修改, 但请修改各应用端口号及IP
+  
+- 安装
+  # 约8分钟
+  ansible-playbook install-zone-zookeeper.yml
+  # 约55分, kafka依赖zookeeper
+  ansible-playbook install-zone-db.yml
+  # 约40分钟, jumpserver依赖redis, mysql
+  ansible-playbook install-zone-ops.yml
+  # 约5分钟
+  ansible-playbook install-zone-web.yml
+  # 约40分钟, nexus提示密码修改失败, 可不管用默认密码admin123进入
+  ansible-playbook install-zone-ware.yml
+  
+```
+
+### 错误注意
+- 遇到任何[ERROR]: failed to download the file时, 请重新执行脚本即可重新下载
+  
+- zookeeper启动报错, Error: Could not find or load main class org.apache.zookeeper.server.quorum.QuorumPeerMain
+  是安装包下载不完整, 请更新国内地址
+
+- zookeeper下载时, 如果某个节点报错, 请直接重新运行安装命令, 会重新下载即可,  主要原因为下载时错误
+
+
+License
+-------
+
+MIT
+
+Author Information
+------------------
+
+ccz <hanlin2531@163.com>
+

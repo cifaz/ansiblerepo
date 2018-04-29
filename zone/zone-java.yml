@@ -1,10 +1,10 @@
 ---
 - hosts: web
   vars_files:
-    - vars.yml
+    - ../vars.yml
   roles:
     - role: srsp.oracle-java
       vars_files:
-        - vars.yml
+        - ../vars.yml
       when: enable_oracle_java
 

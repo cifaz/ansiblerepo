@@ -1,10 +1,10 @@
 ---
 - hosts: web
   vars_files:
-    - vars.yml
+    - ../vars.yml
   roles:
     - role: savoirfairelinux.nexus3-oss
       vars_files:
-        - vars.yml
+        - ../vars.yml
       when: enable_nexus3
 

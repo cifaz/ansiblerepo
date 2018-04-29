@@ -1,5 +1,0 @@
----
-- hosts: local
-  become: yes
-  roles:
-    - gitlab-zh

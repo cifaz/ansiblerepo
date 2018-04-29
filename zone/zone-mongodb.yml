@@ -1,11 +1,11 @@
 ---
 - hosts: localhost
   vars_files:
-    - vars.yml
+    - ../vars.yml
   roles:
     - role: greendayonfire.mongodb
       vars_files:
-        - vars.yml
+        - ../vars.yml
       when: enable_mongodb
 
 

@@ -1,4 +1,0 @@
-gitlab-ce-version=10.6.1
-gitlab-ce-url=http://192.168.19.254
-gitlab-ce-port=9000
-gitlab-ce-repo-dir=/app/data/gitlab

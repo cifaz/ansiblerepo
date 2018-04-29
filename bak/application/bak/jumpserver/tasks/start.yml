@@ -1,2 +1,0 @@
-- name: start jumpserver
-  shell: /opt/jumpserver/jms start -d
