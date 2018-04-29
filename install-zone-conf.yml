@@ -8,6 +8,7 @@
       template:
         src: conf/nginx.conf.j2
         dest: "/etc/nginx/conf.d/{{ item.server_name }}.conf"
+        attr: "{{ item }}"
       vars: "{{ item }}"
       loop: "{{ nginx_conf }}"
 
