@@ -24,4 +24,11 @@
         dest: "/etc/dnsmasq.d/{{ item.host_name }}.conf"
       loop: "{{ dns_conf }}"
 
+    - name: restart dns and nginx
+      service:
+        name: "{{ item }}"
+        state: restarted
+      loop:
+        - nginx
+        - dnsmasq
 
