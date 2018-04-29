@@ -5,7 +5,10 @@
     - vars.yml
   tasks:
     - name: conf nginx
-      vars: "{{ item }}"
+      vars: {server_name: zentao.ccz.com,
+                 log_evn: test,
+                 upstream_name: cczzentao,
+                 ip_and_port: 127.0.0.1:8080}
       template:
         src: conf/nginx.conf.j2
         dest: "/etc/nginx/conf.d/{{ item.server_name }}.conf"
